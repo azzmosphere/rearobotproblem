@@ -12,9 +12,9 @@ public class TestRobotRectangleWorldConfig {
     @Test
     public void testRobotRectangleConfig() {
         robotRectagleWorldConfig.setLength(10);
-        robotRectagleWorldConfig.setLength(5);
+        robotRectagleWorldConfig.setWidth(5);
 
         assertThat(robotRectagleWorldConfig.getLength(), is(10));
-        assertThat(robotRectagleWorldConfig.getLength(), is(5));
+        assertThat(robotRectagleWorldConfig.getWidth(), is(5));
     }
 }

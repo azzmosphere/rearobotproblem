@@ -7,13 +7,23 @@ package rea.toyrobot.config.mapper;
 import javax.xml.bind.annotation.XmlElement;
 
 public class RobotRectagleWorldConfig {
-    @XmlElement
-    public void setWidth(int width) {}
-
-    public int getWidth() {return 0;}
+    private int length, width;
 
     @XmlElement
-    public void setLength(int length) {}
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
-    public int getLength() {return 0;}
+    public int getWidth() {
+        return width;
+    }
+
+    @XmlElement
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getLength() {
+        return length;
+    }
 }
