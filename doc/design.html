@@ -1,0 +1,42 @@
+World
+=====
+
+* Contains a series of coordinates that represent all physical locations of that a item can be.
+** Enforces the rule:
+***  1)  That the tables outer most edges can not be exceeded.
+
+Position
+========
+
+* Representive of the position in accordance to the robots perspective. For instance
+WEST, 0, 0 would mean that the robot is facing west at world coordinates 0,0
+
+Move
+====
+
+increments or decrements a coordinate in position, depending on positions compassDirection
+
+Place
+=====
+
+sets the initial coordinates of Position and compass direction
+
+Rotate
+======
+
+Changes the CompassDirection of position with the calls to clockwise and anti-clockwise
+
+Report
+======
+
+Reads data from position and returns it as screen
+
+Robot Commands
+==================
+
+Provides a common interface to position
+
+Robot
+======
+
+Interface to Robot Position, accepts commands and parses them to Position Interface
