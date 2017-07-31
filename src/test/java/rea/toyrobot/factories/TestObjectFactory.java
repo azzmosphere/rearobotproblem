@@ -3,27 +3,17 @@ package rea.toyrobot.factories;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
 
 public class TestObjectFactory {
 
-    private interface of1Iface {
-       void someMethod();
-    }
-
-    private class if1concrete implements of1Iface {
-        @Override
-        public void someMethod() {
-
-        }
-    }
-
-    private ObjectFactory<of1Iface, if1concrete> objectFactory = new ObjectFactory() {};
+    private ObjectFactory<TestClassI, TestClassC> objectFactory = new ObjectFactory<>(TestClassC.class);
 
     @Test
     public void testGenerateObject() throws Exception {
-        of1Iface concrete = objectFactory.createObject(if1concrete.class);
+        TestClassI concrete = objectFactory.create();
 
-        assertThat(concrete.getClass().toString(), is("if1concrete"));
+        assertThat(concrete, instanceOf(TestClassC.class));
+
     }
 }

@@ -14,13 +14,21 @@ package rea.toyrobot.factories;
  *  where World is a interface.
  */
 
-public abstract class ObjectFactory<I, C> {
+public class ObjectFactory<I, C extends I> {
+
+    Class<C> concreteClass;
+
+    public  ObjectFactory(Class<C> concreteClass) {
+        this.concreteClass = concreteClass;
+    }
 
     /**
      *
      * @return a blank instance of a given object.
      */
-    protected I createObject(final Class<C> oClass) throws InstantiationException, IllegalAccessException {
-        return null;
+    protected I create() throws InstantiationException, IllegalAccessException {
+
+        I concrete = concreteClass.newInstance();
+        return concrete;
     }
 }
