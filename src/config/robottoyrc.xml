@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!--
+Robot Toy configuration file.  This file is loaded by the robot toy app
+and defines the various configuration that the application needs
+-->
+
+<robotconf>
+    <!--
+    The object factories are used to produce the concrete classes
+    used by the robot toy app
+    -->
+    <objectfactories>
+        <worldfactory>
+            <clazz>rea.toyrobot.factories.RectangleWorldFactory</clazz>
+        </worldfactory>
+    </objectfactories>
+
+    <!-- world configuration -->
+    <worldconfig>
+        <width>5</width>
+        <length>5</length>
+    </worldconfig>
+</robotconf>
