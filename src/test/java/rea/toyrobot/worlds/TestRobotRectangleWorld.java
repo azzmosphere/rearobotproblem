@@ -11,7 +11,7 @@ public class TestRobotRectangleWorld {
     private RobotRectangleWorld robotRectangleWorld = new RobotRectangleWorld();
 
     @Test
-    public void testCanMoveTo() {
+    public void testCanMoveTo() throws Exception {
         Map<String, Integer> worldConfig = new HashMap<>();
 
         worldConfig.put("width", 5);
@@ -19,7 +19,7 @@ public class TestRobotRectangleWorld {
 
         robotRectangleWorld.initialise(worldConfig);
         assertThat(robotRectangleWorld.canMoveTo(5, 5), is(false));
-        assertThat(robotRectangleWorld.canMoveTo(0,0), is(true));
+        assertThat(robotRectangleWorld.canMoveTo(0, 0), is(true));
     }
 
 
