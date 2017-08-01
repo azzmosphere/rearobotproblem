@@ -17,7 +17,7 @@ public class TestPerspectiveCompass {
 
     @Test
     public void testRetrieveInitialPerspective() {
-        assertThat(perspectiveCompass.getCardinalDirection("SOUTH"), is(EnumPerspectiveCompass.SOUTH));
+        assertThat(perspectiveCompass.findCardinalDirection("SOUTH"), is(EnumPerspectiveCompass.SOUTH));
     }
 
     @Test
@@ -28,5 +28,10 @@ public class TestPerspectiveCompass {
     @Test
     public void testRotateAntiClockwise() {
         assertThat(perspectiveCompass.rotateAntiClockwise(), is(EnumPerspectiveCompass.WEST));
+    }
+
+    @Test
+    public void testGetDirection() {
+        assertThat(perspectiveCompass.getCardinalDirection(), is("NORTH"));
     }
 }

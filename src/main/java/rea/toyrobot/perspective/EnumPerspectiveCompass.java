@@ -16,16 +16,16 @@ public enum  EnumPerspectiveCompass implements PerspectiveCompass {
 
     @Override
     public PerspectiveCompass rotateClockwise() {
-        return getCardinalDirection(next);
+        return findCardinalDirection(next);
     }
 
     @Override
     public PerspectiveCompass rotateAntiClockwise() {
-        return getCardinalDirection(previous);
+        return findCardinalDirection(previous);
     }
 
     @Override
-    public PerspectiveCompass getCardinalDirection(String cardinalDirection) {
+    public PerspectiveCompass findCardinalDirection(String cardinalDirection) {
         PerspectiveCompass perspectiveCompass = null;
         for (EnumPerspectiveCompass perspective : EnumPerspectiveCompass.values()) {
             if (perspective.id.equals(cardinalDirection)) {
@@ -33,5 +33,10 @@ public enum  EnumPerspectiveCompass implements PerspectiveCompass {
             }
         }
         return perspectiveCompass;
+    }
+
+    @Override
+    public String getCardinalDirection() {
+        return id;
     }
 }

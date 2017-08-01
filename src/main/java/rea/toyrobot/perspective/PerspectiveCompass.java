@@ -26,5 +26,12 @@ public interface PerspectiveCompass {
      * @param cardinalDirection
      * @return
      */
-    PerspectiveCompass getCardinalDirection(String cardinalDirection);
+    PerspectiveCompass findCardinalDirection(String cardinalDirection);
+
+    /**
+     * Return the current cardinal direction.
+     *
+     * @return
+     */
+    String getCardinalDirection();
 }
