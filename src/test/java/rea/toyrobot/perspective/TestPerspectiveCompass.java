@@ -11,7 +11,7 @@ public class TestPerspectiveCompass {
     EnumPerspectiveCompass perspectiveCompass;
 
     @Before
-    public void setupTest() {
+    public void init() {
         perspectiveCompass = EnumPerspectiveCompass.NORTH;
     }
 
