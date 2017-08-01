@@ -7,7 +7,7 @@ import rea.toyrobot.worlds.WorldInterface;
 import java.util.Map;
 import java.util.HashMap;
 
-public class RobotRectangleWorldFactory extends ObjectFactory<WorldInterface, RobotRectangleWorld>  implements ObjectFactoryInterface<WorldInterface, RobotRectangleWorldConfig>   {
+public class RobotRectangleWorldFactory extends ObjectFactory<WorldInterface, RobotRectangleWorld>  implements RobotWorldFactory {
     private RobotRectangleWorldConfig mapper;
 
     public RobotRectangleWorldFactory() {
