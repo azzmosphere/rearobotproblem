@@ -31,7 +31,7 @@ public abstract class ObjectFactory<I, C extends I> {
      * @param object
      * @return
      */
-    protected  abstract C init(C object);
+    protected  abstract C init(C object) throws RobotInitialisationException;
 
     /**
      *
