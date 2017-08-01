@@ -1,5 +1,7 @@
 package rea.toyrobot.factories;
 
+import rea.toyrobot.exceptions.RobotInitialisationException;
+
 /**
  * When given a class the object factory creates a instance of that object
  * assigning it to the base interface that it needs to be.
@@ -35,10 +37,21 @@ public abstract class ObjectFactory<I, C extends I> {
      *
      * @return a blank instance of a given object.
      */
-    protected I create() throws InstantiationException, IllegalAccessException {
+    public I create() throws RobotInitialisationException {
 
-        if (instance == null) {
-            instance = init(concreteClass.newInstance());
+        try {
+            if (instance == null) {
+                instance = init(concreteClass.newInstance());
+            }
+        }
+        catch (InstantiationException e) {
+            throw new RobotInitialisationException("unable to instantiate new object " + e.getMessage());
+        }
+        catch (IllegalAccessException e) {
+            throw new RobotInitialisationException("can not create object " + e.getMessage());
+        }
+        catch (Exception e) {
+            throw new RobotInitialisationException("a unchecked exception has occurred " + e.getMessage());
         }
         return instance;
     }

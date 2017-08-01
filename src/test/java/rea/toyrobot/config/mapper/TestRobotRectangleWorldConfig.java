@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class TestRobotRectangleWorldConfig {
 
-    private RobotRectagleWorldConfig robotRectagleWorldConfig = new RobotRectagleWorldConfig();
+    private RobotRectangleWorldConfig robotRectagleWorldConfig = new RobotRectangleWorldConfig();
 
     @Test
     public void testRobotRectangleConfig() {

@@ -6,7 +6,7 @@ package rea.toyrobot.config.mapper;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class RobotRectagleWorldConfig {
+public class RobotRectangleWorldConfig {
     private int length, width;
 
     @XmlElement
