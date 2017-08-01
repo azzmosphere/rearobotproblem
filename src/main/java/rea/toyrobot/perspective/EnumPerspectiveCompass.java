@@ -30,6 +30,7 @@ public enum  EnumPerspectiveCompass implements PerspectiveCompass {
         for (EnumPerspectiveCompass perspective : EnumPerspectiveCompass.values()) {
             if (perspective.id.equals(cardinalDirection)) {
                 perspectiveCompass = perspective;
+                break;
             }
         }
         return perspectiveCompass;

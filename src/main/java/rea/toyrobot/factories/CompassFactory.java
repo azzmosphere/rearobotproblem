@@ -10,22 +10,31 @@ import rea.toyrobot.perspective.PerspectiveCompass;
  */
 
 public class CompassFactory extends ObjectFactory<PerspectiveCompass, EnumPerspectiveCompass> implements RobotCompassFactory {
+    private RobotCompassConfig mapper;
+
     public CompassFactory() {
         super(EnumPerspectiveCompass.class);
     }
 
     @Override
     protected EnumPerspectiveCompass init(EnumPerspectiveCompass object) throws RobotInitialisationException {
-        return null;
+        return object;
     }
 
     @Override
     public PerspectiveCompass create() throws RobotInitialisationException {
-        return super.create();
+        PerspectiveCompass object = null;
+        for (PerspectiveCompass perspectiveCompass : EnumPerspectiveCompass.values()) {
+            if (perspectiveCompass.getCardinalDirection().equals(mapper.getInitialpos())) {
+                object = perspectiveCompass;
+                break;
+            }
+        }
+        return object;
     }
 
     @Override
     public void setObjectMapper(RobotCompassConfig mapper) {
-
+        this.mapper = mapper;
     }
 }
