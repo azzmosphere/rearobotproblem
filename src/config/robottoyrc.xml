@@ -11,9 +11,9 @@ and defines the various configuration that the application needs
     used by the robot toy app
     -->
     <objectfactories>
-        <worldfactory>
-            <clazz>rea.toyrobot.factories.RectangleWorldFactory</clazz>
-        </worldfactory>
+        <worldfactory>rea.toyrobot.factories.RectangleWorldFactory</worldfactory>
+        <compassfactory>rea.toyrobot.factories.CompassFactory</compassfactory>
+        <perspectivefactory>rea.toyrobot.factories.PerspectiveFactory</perspectivefactory>
     </objectfactories>
 
     <!-- world configuration -->
@@ -21,4 +21,10 @@ and defines the various configuration that the application needs
         <width>5</width>
         <length>5</length>
     </worldconfig>
+
+    <!-- compass configuration -->
+    <compassconfig>
+        <!-- the place command will override this anyway -->
+        <initialpos>NORTH</initialpos>
+    </compassconfig>
 </robotconf>
