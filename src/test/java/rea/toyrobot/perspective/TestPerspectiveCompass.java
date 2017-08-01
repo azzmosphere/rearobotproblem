@@ -27,6 +27,6 @@ public class TestPerspectiveCompass {
 
     @Test
     public void testRotateAntiClockwise() {
-        assertThat(perspectiveCompass.rotateClockwise(), is(EnumPerspectiveCompass.WEST));
+        assertThat(perspectiveCompass.rotateAntiClockwise(), is(EnumPerspectiveCompass.WEST));
     }
 }

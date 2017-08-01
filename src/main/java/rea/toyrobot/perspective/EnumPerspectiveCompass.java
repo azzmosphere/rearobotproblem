@@ -1,24 +1,37 @@
 package rea.toyrobot.perspective;
 
 public enum  EnumPerspectiveCompass implements PerspectiveCompass {
-    NORTH,
-    EAST,
-    SOUTH,
-    WEST
+    NORTH("EAST", "WEST", "NORTH"),
+    EAST("SOUTH", "NORTH", "EAST"),
+    SOUTH("WEST", "EAST", "SOUTH"),
+    WEST("NORTH", "SOUTH", "WEST")
     ;
+
+    private String id, next, previous;
+    EnumPerspectiveCompass(String next, String previous, String id) {
+        this.id = id;
+        this.next = next;
+        this.previous = previous;
+    }
 
     @Override
     public PerspectiveCompass rotateClockwise() {
-        return null;
+        return getCardinalDirection(next);
     }
 
     @Override
     public PerspectiveCompass rotateAntiClockwise() {
-        return null;
+        return getCardinalDirection(previous);
     }
 
     @Override
     public PerspectiveCompass getCardinalDirection(String cardinalDirection) {
-        return null;
+        PerspectiveCompass perspectiveCompass = null;
+        for (EnumPerspectiveCompass perspective : EnumPerspectiveCompass.values()) {
+            if (perspective.id.equals(cardinalDirection)) {
+                perspectiveCompass = perspective;
+            }
+        }
+        return perspectiveCompass;
     }
 }
