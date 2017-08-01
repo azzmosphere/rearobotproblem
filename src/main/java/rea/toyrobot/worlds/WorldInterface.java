@@ -30,7 +30,7 @@ public interface WorldInterface {
      * @param x
      * @param y
      */
-    void setObject(int x, int y) throws RobotDuplicatedLocationException;
+    void setObject(int x, int y) throws RobotDuplicatedLocationException, RobotOutOfBoundsException;
 
     /**
      * remove object from position x,y

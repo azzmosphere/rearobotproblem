@@ -30,6 +30,5 @@ public class RobotRectangleWorld implements WorldInterface {
 
     @Override
     public void initialise(Map defaults) throws RobotInitialisationException {
-
     }
 }
