@@ -4,8 +4,8 @@ import rea.toyrobot.config.mapper.RobotRectangleWorldConfig;
 import rea.toyrobot.worlds.RobotRectangleWorld;
 import rea.toyrobot.worlds.WorldInterface;
 
-public class RobotWorldFactory extends ObjectFactory<WorldInterface, RobotRectangleWorld>  implements ObjectFactoryInterface<WorldInterface, RobotRectangleWorldConfig>   {
-    public RobotWorldFactory() {
+public class RobotRectangleWorldFactory extends ObjectFactory<WorldInterface, RobotRectangleWorld>  implements ObjectFactoryInterface<WorldInterface, RobotRectangleWorldConfig>   {
+    public RobotRectangleWorldFactory() {
         super(RobotRectangleWorld.class);
     }
 
