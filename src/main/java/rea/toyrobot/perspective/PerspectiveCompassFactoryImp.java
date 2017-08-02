@@ -3,9 +3,6 @@ package rea.toyrobot.perspective;
 import rea.toyrobot.config.mapper.RobotCompassConfig;
 import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.factories.ObjectFactory;
-import rea.toyrobot.perspective.EnumPerspectiveCompass;
-import rea.toyrobot.perspective.PerspectiveCompass;
-import rea.toyrobot.perspective.PerspectiveCompassFactory;
 
 /**
  * implementation of EnumPerspectiveCompass factory.
