@@ -1,6 +1,6 @@
 package rea.toyrobot.perspective;
 
-public class RobotWorldView implements RobotWorldPerspective {
+public class RobotPerspective implements Perspective {
     private int x, y;
     PerspectiveCompass compass;
 

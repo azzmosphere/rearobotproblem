@@ -1,13 +1,13 @@
-package rea.toyrobot.factories;
+package rea.toyrobot.perspective;
 
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.perspective.RobotWorldPerspective;
+import rea.toyrobot.factories.RobotCompassFactory;
 
 /**
  * Creates the perspective for the robot.
  */
 
-public interface RobotPerspectiveFactory {
+public interface PerspectiveFactory {
 
     /**
      * compass factory to use with perspective
@@ -26,5 +26,5 @@ public interface RobotPerspectiveFactory {
      * @return
      * @throws RobotInitialisationException
      */
-    RobotWorldPerspective create() throws RobotInitialisationException;
+    Perspective create() throws RobotInitialisationException;
 }

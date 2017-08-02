@@ -5,7 +5,7 @@ package rea.toyrobot.perspective;
  *
  */
 
-public interface RobotWorldPerspective {
+public interface Perspective {
 
     /**
      * returns the current X position

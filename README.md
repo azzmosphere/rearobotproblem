@@ -89,7 +89,7 @@ __PerspectiveFactory__
 
 interface for factory object that creates perspective concrete objects.
 
-__RobotTableTopPerspectiveFactory__
+__RobotPerspectiveFactory__
 
 Creates a RobotTableTopPerspective instance.
 

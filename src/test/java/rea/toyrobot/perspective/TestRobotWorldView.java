@@ -9,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 public class TestRobotWorldView {
-    private RobotWorldPerspective perspective = new RobotWorldView();
+    private Perspective perspective = new RobotPerspective();
     private PerspectiveCompass compass = mock(PerspectiveCompass.class);
 
     @Before
