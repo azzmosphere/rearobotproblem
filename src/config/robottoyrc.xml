@@ -13,7 +13,7 @@ and defines the various configuration that the application needs
     <objectfactories>
         <worldfactory>rea.toyrobot.factories.RectangleWorldFactory</worldfactory>
         <compassfactory>rea.toyrobot.factories.CompassFactory</compassfactory>
-        <perspectivefactory>rea.toyrobot.factories.PerspectiveFactory</perspectivefactory>
+        <perspectivefactory>rea.toyrobot.factories.WorldViewFactory</perspectivefactory>
     </objectfactories>
 
     <!-- world configuration -->
