@@ -1,21 +1,21 @@
-package rea.toyrobot.factories;
+package rea.toyrobot.worlds;
 
 import rea.toyrobot.config.mapper.RobotRectangleWorldConfig;
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.worlds.RobotRectangleWorld;
-import rea.toyrobot.worlds.WorldInterface;
+import rea.toyrobot.factories.ObjectFactory;
+
 import java.util.Map;
 import java.util.HashMap;
 
-public class RobotRectangleWorldFactory extends ObjectFactory<WorldInterface, RobotRectangleWorld>  implements RobotWorldFactory {
+public class TableTopWorldFactoryImp extends ObjectFactory<World, TableTopWorld> implements TableTopWorldFactory {
     private RobotRectangleWorldConfig mapper;
 
-    public RobotRectangleWorldFactory() {
-        super(RobotRectangleWorld.class);
+    public TableTopWorldFactoryImp() {
+        super(TableTopWorld.class);
     }
 
     @Override
-    protected RobotRectangleWorld init(RobotRectangleWorld object) throws RobotInitialisationException {
+    protected TableTopWorld init(TableTopWorld object) throws RobotInitialisationException {
         Map defaults = new HashMap();
         defaults.put("width", mapper.getWidth());
         defaults.put("length", mapper.getLength());

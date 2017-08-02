@@ -1,7 +1,6 @@
 package rea.toyrobot.perspective;
 
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.factories.RobotCompassFactory;
 
 /**
  * Creates the perspective for the robot.
@@ -18,7 +17,7 @@ public interface PerspectiveFactory {
      * The factory is used here so that the perspective has a unique compass
      * for its perspective.
      */
-    void setCompassFactory(RobotCompassFactory compassFactory);
+    void setCompassFactory(PerspectiveCompassFactory compassFactory);
 
     /**
      * creation class

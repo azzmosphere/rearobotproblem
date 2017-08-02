@@ -13,7 +13,7 @@ import java.util.Map;
  * documentation of what the methods do, review the interface.
  */
 
-public class RobotRectangleWorld implements WorldInterface {
+public class TableTopWorld implements World {
     private int width, length;
     boolean[][] coordinates;
 

@@ -1,6 +1,6 @@
-package rea.toyrobot.factories;
+package rea.toyrobot.worlds;
 
-import rea.toyrobot.worlds.WorldInterface;
+import rea.toyrobot.factories.ObjectFactoryInterface;
 import rea.toyrobot.config.mapper.RobotRectangleWorldConfig;
 
 /**
@@ -9,5 +9,5 @@ import rea.toyrobot.config.mapper.RobotRectangleWorldConfig;
  * configuration
  */
 
-public interface RobotWorldFactory extends ObjectFactoryInterface<WorldInterface, RobotRectangleWorldConfig> {
+public interface TableTopWorldFactory extends ObjectFactoryInterface<World, RobotRectangleWorldConfig> {
 }

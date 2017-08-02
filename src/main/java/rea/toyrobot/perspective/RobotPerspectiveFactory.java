@@ -6,7 +6,6 @@ package rea.toyrobot.perspective;
 
 import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.factories.ObjectFactory;
-import rea.toyrobot.factories.RobotCompassFactory;
 
 public class RobotPerspectiveFactory extends ObjectFactory<Perspective, RobotPerspective> implements PerspectiveFactory {
     public RobotPerspectiveFactory() {
@@ -24,7 +23,7 @@ public class RobotPerspectiveFactory extends ObjectFactory<Perspective, RobotPer
     }
 
     @Override
-    public void setCompassFactory(RobotCompassFactory compassFactory) {
+    public void setCompassFactory(PerspectiveCompassFactory compassFactory) {
 
     }
 }

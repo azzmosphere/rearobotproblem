@@ -13,7 +13,7 @@ import java.util.Map;
  * The object must abide by the limits of the world.
  */
 
-public interface WorldInterface {
+public interface World {
 
     /**
      * check x and y coordinate to see if object can move there.
