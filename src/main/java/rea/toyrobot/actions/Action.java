@@ -17,12 +17,7 @@ public interface Action {
      */
     String[] getResponse();
 
-    /**
-     * The pysical object to modify
-     *
-     * @param physicalObject
-     */
-    void setPhysicalObject(PhysicalObject physicalObject);
+
 
     /**
      * returns true if the action can process the request.
