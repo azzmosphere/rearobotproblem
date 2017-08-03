@@ -139,11 +139,32 @@ object as a argument.
 
 __WorldAction__ (interface)
 
-__WorldActionFactory__ (factory interface)
+__WorldActionFactory__ (factory class for world actions)
 
-__WorldActionPlaceFactory__ (factory class for Place action)
+Produces a array of WorldActions for the executor.
 
 __WorldActionPlace__
+
+__actions.physicalobjects.GlobalActionFactory__ 
+
+produces a list of global actions for executor.
+
+A global action action affects the world and the robot.
+
+actions are:
+
+___ActionMove___
+
+__actions.physicalobjects.LocalAction__
+
+produces a list of actions that only affect the robot's perspective and not the 
+world.
+
+___ActionLeft___
+
+___ActionRight___
+
+___ActionReport___
 
 actions.pysicalobject.perspective
 =================================

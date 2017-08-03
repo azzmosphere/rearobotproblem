@@ -27,4 +27,18 @@ and defines the various configuration that the application needs
         <!-- the place command will override this anyway -->
         <initialpos>NORTH</initialpos>
     </compassconfig>
+
+    <worldactions>
+        <worldaction>rea.toyrobot.actions.world.PlaceAction</worldaction>
+    </worldactions>
+
+    <globalactions>
+        <globalaction>rea.toyrobot.actions.physicalobjects.MoveAction</globalaction>
+    </globalactions>
+
+    <localactions>
+        <localaction>rea.toyrobot.actions.physicalobjects.LeftAction</localaction>
+        <localaction>rea.toyrobot.actions.physicalobjects.RightAction</localaction>
+        <localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>
+    </localactions>
 </robotconf>
