@@ -49,7 +49,39 @@ public class MoveAction implements GlobalAction {
             public int resetY(int y) {
                 return y;
             }
-        };
+        },
+        SOUTH {
+            @Override
+            public String toString() {
+                return "SOUTH";
+            }
+
+            @Override
+            public int resetX(int x) {
+                return x;
+            }
+
+            @Override
+            public int resetY(int y) {
+                return y - 1;
+            }
+        },
+        WEST {
+            @Override
+            public String toString() {
+                return "WEST";
+            }
+
+            @Override
+            public int resetX(int x) {
+                return x - 1;
+            }
+
+            @Override
+            public int resetY(int y) {
+                return y;
+            }
+        }
     }
 
     @Override
