@@ -17,6 +17,8 @@ import static org.hamcrest.CoreMatchers.is;
 public class TestMoveAction {
     private GlobalAction moveAction = new MoveAction();
     private ArgumentCaptor<Integer> yarg = ArgumentCaptor.forClass(Integer.class);
+    private ArgumentCaptor<Integer> xargWorld = ArgumentCaptor.forClass(Integer.class);
+    private ArgumentCaptor<Integer> yargWorld = ArgumentCaptor.forClass(Integer.class);
     private PhysicalObject physicalObjectMock = mock(PhysicalObject.class);
     private Perspective perspective = mock(Perspective.class);
     private World world = mock(World.class);
@@ -38,6 +40,9 @@ public class TestMoveAction {
         when(perspectiveCompass.getCardinalDirection()).thenReturn("NORTH");
         moveAction.runAction();
         verify(perspective).setYPos(yarg.capture());
+        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
         assertThat(yarg.getValue(), is(2));
+        assertThat(xargWorld.getValue(), is(0));
+        assertThat(yargWorld.getValue(), is(1));
     }
 }
