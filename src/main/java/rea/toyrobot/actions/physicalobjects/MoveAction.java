@@ -65,6 +65,7 @@ public class MoveAction implements GlobalAction {
             if (moveEnum.toString().equals(physicalObject.getPerspective().getCompass().getCardinalDirection())) {
                 x = moveEnum.resetX(x);
                 y = moveEnum.resetY(y);
+                break;
             }
         }
 
