@@ -12,10 +12,10 @@ import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
 import rea.toyrobot.worlds.World;
 
 public class PlaceAction implements WorldAction {
-    private String[] argsIn = null;
+    private String[] argsIn;
     private PhysicalObjectFactory physicalObjectFactory;
     private World world;
-    private String response = null;
+    private String response;
 
     @Override
     public void setWorld(World world) {

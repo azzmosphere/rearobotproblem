@@ -1,7 +1,5 @@
 package rea.toyrobot.actions;
 
-import rea.toyrobot.physicalobjects.PhysicalObject;
-
 public interface Action {
     /**
      * The arguments that
