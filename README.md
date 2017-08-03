@@ -153,7 +153,7 @@ into two parts.  Physical object factories have PerspectiveFactory as a
 argument, this is because a perspective belongs only to a physical object
 and not to the rest of the world.
 
-__actions.robot.perspective.localised__
+__actions.physicalobjects.localised__
 
 These actions affect the robots perspective but have no affect on the world.
 Localised actions receive the physical object as a argument.
@@ -164,7 +164,7 @@ LocalActionRight
 
 LocalActionReport
 
-__action.robot.perspective.global__
+__action.physicalobjects.global__
 
 Global actions change a physical objects perspective as well as the world.
 The physical object and the world are arguments to these actions.
