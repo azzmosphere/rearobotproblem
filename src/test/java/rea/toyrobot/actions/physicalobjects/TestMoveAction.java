@@ -31,17 +31,53 @@ public class TestMoveAction {
         when(physicalObjectMock.getPerspective()).thenReturn(perspective);
         when(perspective.getXPos()).thenReturn(1);
         when(perspective.getYpos()).thenReturn(1);
-
-        perspective.setCompass(perspectiveCompass);
+        when(perspective.getCompass()).thenReturn(perspectiveCompass);
     }
 
     @Test
     public void testRunActionNorth() throws Exception {
         when(perspectiveCompass.getCardinalDirection()).thenReturn("NORTH");
+        when(world.canMoveTo(1, 2)).thenReturn(true);
         moveAction.runAction();
         verify(perspective).setYPos(yarg.capture());
         verify(world).setObject(xargWorld.capture(), yargWorld.capture());
         assertThat(yarg.getValue(), is(2));
+        assertThat(xargWorld.getValue(), is(1));
+        assertThat(yargWorld.getValue(), is(2));
+    }
+
+    @Test
+    public void testRunActionEast() throws Exception {
+        when(perspectiveCompass.getCardinalDirection()).thenReturn("EAST");
+        when(world.canMoveTo(2, 1)).thenReturn(true);
+        moveAction.runAction();
+        verify(perspective).setXPos(yarg.capture());
+        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        assertThat(yarg.getValue(), is(2));
+        assertThat(xargWorld.getValue(), is(2));
+        assertThat(yargWorld.getValue(), is(1));
+    }
+
+    @Test
+    public void testRunActionSouth() throws Exception {
+        when(perspectiveCompass.getCardinalDirection()).thenReturn("SOUTH");
+        when(world.canMoveTo(1, 0)).thenReturn(true);
+        moveAction.runAction();
+        verify(perspective).setYPos(yarg.capture());
+        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        assertThat(yarg.getValue(), is(0));
+        assertThat(xargWorld.getValue(), is(1));
+        assertThat(yargWorld.getValue(), is(0));
+    }
+
+    @Test
+    public void testRunActionWest() throws Exception {
+        when(perspectiveCompass.getCardinalDirection()).thenReturn("WEST");
+        when(world.canMoveTo(0, 1)).thenReturn(true);
+        moveAction.runAction();
+        verify(perspective).setXPos(yarg.capture());
+        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        assertThat(yarg.getValue(), is(0));
         assertThat(xargWorld.getValue(), is(0));
         assertThat(yargWorld.getValue(), is(1));
     }

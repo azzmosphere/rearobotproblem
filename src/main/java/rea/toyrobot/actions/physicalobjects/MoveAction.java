@@ -12,6 +12,46 @@ public class MoveAction implements GlobalAction {
     private World world;
     private PhysicalObject physicalObject;
 
+    private interface MoveEnumIface {
+        int resetX(int x);
+        int resetY(int y);
+    }
+
+    private enum MoveEnum implements MoveEnumIface {
+        NORTH {
+            @Override
+            public String toString() {
+                return "NORTH";
+            }
+
+            @Override
+            public int resetX(int x) {
+                return x;
+            }
+
+            @Override
+            public int resetY(int y) {
+                return y + 1;
+            }
+        },
+        EAST {
+            @Override
+            public String toString() {
+                return "EAST";
+            }
+
+            @Override
+            public int resetX(int x) {
+                return x + 1;
+            }
+
+            @Override
+            public int resetY(int y) {
+                return y;
+            }
+        };
+    }
+
     @Override
     public void setWorld(World world) {
         this.world = world;
@@ -21,9 +61,16 @@ public class MoveAction implements GlobalAction {
     public void runAction() throws RobotException {
         int x = physicalObject.getPerspective().getXPos(), y = physicalObject.getPerspective().getYpos();
 
-//        if (world.canMoveTo(x, y + 1) && "NORTH".equals(physicalObject.getPerspective().getCompass().getCardinalDirection())) {
-            physicalObject.getPerspective().setYPos(y + 1);
-//        }
+        for (MoveEnum moveEnum : MoveEnum.values()) {
+            if (moveEnum.toString().equals(physicalObject.getPerspective().getCompass().getCardinalDirection())) {
+                x = moveEnum.resetX(x);
+                y = moveEnum.resetY(y);
+            }
+        }
+
+        physicalObject.getPerspective().setXPos(x);
+        physicalObject.getPerspective().setYPos(y);
+        world.setObject(x, y);
     }
 
     @Override
