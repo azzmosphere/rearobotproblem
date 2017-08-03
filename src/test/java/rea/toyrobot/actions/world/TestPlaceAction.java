@@ -8,9 +8,7 @@ import rea.toyrobot.worlds.World;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class TestPlaceAction {
     private WorldAction placeAction = new PlaceAction();
@@ -25,6 +23,7 @@ public class TestPlaceAction {
 
         when(tableTop.canMoveTo(0, 0)).thenReturn(true);
         doNothing().when(tableTop).setObject(0, 0);
+        when(factory.create()).thenReturn(robot);
     }
 
     @Test
@@ -34,8 +33,14 @@ public class TestPlaceAction {
     }
 
     @Test
-    public void testRunAction() {
+    public void testRunAction() throws Exception {
+        placeAction.setArgsIn(new String[] {"PLACE", "0", "0", "NORTH"});
+        PhysicalObject object = placeAction.runAction();
 
+        assertThat(object.getPerspective().getXPos(), is(0));
+        assertThat(object.getPerspective().getYpos(), is(0));
+        assertThat(object.getPerspective().getCompass().getCardinalDirection(), is("NORTH"));
+        assertThat(tableTop.canMoveTo(0, 0), is(false));
     }
 
 }
