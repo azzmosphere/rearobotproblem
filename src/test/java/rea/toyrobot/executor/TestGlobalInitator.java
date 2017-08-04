@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import rea.toyrobot.actions.physicalobjects.GlobalAction;
 import rea.toyrobot.physicalobjects.PhysicalObject;
+import rea.toyrobot.responder.RobotResponder;
 import rea.toyrobot.worlds.World;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -16,11 +17,13 @@ public class TestGlobalInitator {
     private GlobalInitiator globalInitiator = new GlobalInitiator();
     private World world = mock(World.class);
     private PhysicalObject physicalObject = mock(PhysicalObject.class);
+    private RobotResponder responder = mock(RobotResponder.class);
 
     @Before
     public void init() {
         globalInitiator.setPhysicalObject(physicalObject);
         globalInitiator.setWorld(world);
+        globalInitiator.setRobotResponder(responder);
         clearInvocations();
     }
 
@@ -42,6 +45,7 @@ public class TestGlobalInitator {
         verify(action1).runAction();
     }
 
+    @Test
     public void testRunAction2() throws Exception {
         GlobalAction action1 = mock(GlobalAction.class);
         GlobalAction action2 = mock(GlobalAction.class);
