@@ -85,7 +85,8 @@ public class TestMoveAction {
     @Test
     public void testCanPerformAction() {
         assertThat(moveAction.canPerformAction(new String[] {"LEFT"}), is(false));
-        assertThat(moveAction.canPerformAction(new String[] {"RIGHT"}), is(true));
+        assertThat(moveAction.canPerformAction(new String[] {"RIGHT"}), is(false));
         assertThat(moveAction.canPerformAction(new String[] {"PLACE", "1,1,SOUTH"}), is(false));
+        assertThat(moveAction.canPerformAction(new String[] {"MOVE"}), is(true));
     }
 }

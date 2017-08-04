@@ -8,7 +8,6 @@ import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 
 public class LeftAction implements LocalAction {
-
     private PhysicalObject physicalObject;
 
     @Override
@@ -25,11 +24,10 @@ public class LeftAction implements LocalAction {
 
     @Override
     public void setArgsIn(String[] argsIn) {
-
     }
 
     @Override
     public boolean canPerformAction(String[] argsIn) {
-        return false;
+        return (argsIn.length > 0 && "LEFT".equalsIgnoreCase(argsIn[0]));
     }
 }

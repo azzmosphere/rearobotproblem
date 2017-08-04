@@ -118,6 +118,6 @@ public class MoveAction implements GlobalAction {
 
     @Override
     public boolean canPerformAction(String[] argsIn) {
-        return false;
+        return (argsIn.length > 0 && "MOVE".equalsIgnoreCase(argsIn[0]));
     }
 }

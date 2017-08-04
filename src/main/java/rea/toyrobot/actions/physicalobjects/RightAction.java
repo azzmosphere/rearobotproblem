@@ -29,6 +29,6 @@ public class RightAction implements LocalAction {
 
     @Override
     public boolean canPerformAction(String[] argsIn) {
-        return false;
+        return (argsIn.length > 0 && "RIGHT".equalsIgnoreCase(argsIn[0]));
     }
 }
