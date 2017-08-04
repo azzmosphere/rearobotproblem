@@ -73,7 +73,6 @@ public class TestLocalInitiator {
 
     @Test
     public void testRunActionAction1True() throws RobotException {
-
         when(action1.canPerformAction(any())).thenReturn(true);
         when(action2.canPerformAction(any())).thenReturn(false);
 

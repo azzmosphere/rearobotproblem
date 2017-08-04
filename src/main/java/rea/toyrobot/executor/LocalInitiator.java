@@ -3,6 +3,7 @@ package rea.toyrobot.executor;
 import rea.toyrobot.actions.physicalobjects.LocalAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
+import rea.toyrobot.responder.RobotResponder;
 
 public class LocalInitiator extends AbstractInitiator<LocalAction> {
 
@@ -21,5 +22,20 @@ public class LocalInitiator extends AbstractInitiator<LocalAction> {
     @Override
     protected void runAction(LocalAction action) throws RobotException {
         action.runAction();
+    }
+
+    @Override
+    public boolean verifyAction(String[] cmd) {
+        return false;
+    }
+
+    @Override
+    public void setRobotResponder(RobotResponder robotResponder) {
+        super.setRobotResponder(robotResponder);
+    }
+
+    @Override
+    public RobotResponder getRobotResponder() {
+        return super.getRobotResponder();
     }
 }

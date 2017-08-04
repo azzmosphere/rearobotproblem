@@ -2,6 +2,8 @@ package rea.toyrobot.executor;
 
 import rea.toyrobot.actions.Action;
 import rea.toyrobot.exceptions.RobotException;
+import rea.toyrobot.responder.RobotResponder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 
 public abstract class AbstractInitiator<A extends Action> {
     private final List<A> listeners = new ArrayList<>();
+    private RobotResponder robotResponder;
 
     /**
      * Adds a specific action that can be added to the execution framework.
@@ -50,5 +53,15 @@ public abstract class AbstractInitiator<A extends Action> {
                 break;
             }
         }
+    }
+
+    public abstract boolean verifyAction(String[] cmd);
+
+    public void setRobotResponder(RobotResponder robotResponder) {
+        this.robotResponder = robotResponder;
+    }
+
+    public RobotResponder getRobotResponder() {
+        return robotResponder;
     }
 }
