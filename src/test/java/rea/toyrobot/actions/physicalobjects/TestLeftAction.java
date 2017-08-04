@@ -11,6 +11,8 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
 
 public class TestLeftAction {
     private LocalAction leftAction = new LeftAction();
@@ -31,6 +33,13 @@ public class TestLeftAction {
         verify(compass, atLeastOnce()).rotateAntiClockwise();
         verify(compass, atMost(1)).rotateAntiClockwise();
         verify(perspective, atLeastOnce()).setCompass(compass);
+    }
+
+    @Test
+    public void testCanPerformAction() {
+        assertThat(leftAction.canPerformAction(new String[] {"LEFT"}), is(true));
+        assertThat(leftAction.canPerformAction(new String[] {"RIGHT"}), is(false));
+        assertThat(leftAction.canPerformAction(new String[] {"PLACE", "1,1,SOUTH"}), is(false));
     }
 
 }

@@ -81,4 +81,11 @@ public class TestMoveAction {
         assertThat(xargWorld.getValue(), is(0));
         assertThat(yargWorld.getValue(), is(1));
     }
+
+    @Test
+    public void testCanPerformAction() {
+        assertThat(moveAction.canPerformAction(new String[] {"LEFT"}), is(false));
+        assertThat(moveAction.canPerformAction(new String[] {"RIGHT"}), is(true));
+        assertThat(moveAction.canPerformAction(new String[] {"PLACE", "1,1,SOUTH"}), is(false));
+    }
 }
