@@ -22,6 +22,7 @@ public class TestLeftAction {
     public void init() throws Exception {
         when(robot.getPerspective()).thenReturn(perspective);
         when(perspective.getCompass()).thenReturn(compass);
+        when(compass.rotateAntiClockwise()).thenReturn(compass);
         leftAction.setPhysicalObject(robot);
     }
     @Test
@@ -29,6 +30,7 @@ public class TestLeftAction {
         leftAction.runAction();
         verify(compass, atLeastOnce()).rotateAntiClockwise();
         verify(compass, atMost(1)).rotateAntiClockwise();
+        verify(perspective, atLeastOnce()).setCompass(compass);
     }
 
 }
