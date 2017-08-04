@@ -26,16 +26,13 @@ public class LocalInitiator extends AbstractInitiator<LocalAction> {
 
     @Override
     public boolean verifyAction(String[] cmd) {
-        return false;
+        boolean rv = false;
+
+        if (currentObject != null) {
+            rv = true;
+        }
+
+        return rv;
     }
 
-    @Override
-    public void setRobotResponder(RobotResponder robotResponder) {
-        super.setRobotResponder(robotResponder);
-    }
-
-    @Override
-    public RobotResponder getRobotResponder() {
-        return super.getRobotResponder();
-    }
 }

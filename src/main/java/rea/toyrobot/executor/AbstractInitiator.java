@@ -45,19 +45,25 @@ public abstract class AbstractInitiator<A extends Action> {
      * @param cmd
      * @throws RobotException
      */
-    public final void execute(String[] cmd) throws RobotException {
+    public final void execute(String[] cmd) {
         if (!verifyAction(cmd)) {
             robotResponder.setHasResponse(true);
             robotResponder.setResponse("could not be verified");
             return;
         }
 
-        for (A action : listeners) {
-            if (action.canPerformAction(cmd)) {
-                configureAction(action, cmd);
-                runAction(action);
-                break;
+        try {
+            for (A action : listeners) {
+                if (action.canPerformAction(cmd)) {
+                    configureAction(action, cmd);
+                    runAction(action);
+                    break;
+                }
             }
+        }
+        catch (RobotException e) {
+            robotResponder.setHasResponse(true);
+            robotResponder.setResponse("could not process request " + e.getMessage());
         }
     }
 

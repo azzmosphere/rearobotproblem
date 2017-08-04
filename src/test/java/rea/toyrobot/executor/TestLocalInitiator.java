@@ -8,7 +8,12 @@ import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.responder.RobotResponder;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.clearInvocations;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.never;
 
 public class TestLocalInitiator {
     LocalInitiator localInitiator = new LocalInitiator();
