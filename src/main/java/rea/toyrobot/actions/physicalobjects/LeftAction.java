@@ -13,7 +13,9 @@ public class LeftAction implements LocalAction {
 
     @Override
     public void runAction() throws RobotException {
-        physicalObject.getPerspective().getCompass().rotateAntiClockwise();
+        physicalObject.getPerspective().setCompass(
+            physicalObject.getPerspective().getCompass().rotateAntiClockwise()
+        );
     }
 
     @Override
