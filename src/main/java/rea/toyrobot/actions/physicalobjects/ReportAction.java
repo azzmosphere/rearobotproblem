@@ -1,25 +1,22 @@
 package rea.toyrobot.actions.physicalobjects;
 
-/**
- * Rotates a physical object clockwise.
- */
-
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 
-public class RightAction implements LocalAction {
-    PhysicalObject physicalObject;
-
+public class ReportAction implements LocalResponseAction {
     @Override
     public void runAction() throws RobotException {
-        physicalObject.getPerspective().setCompass(
-            physicalObject.getPerspective().getCompass().rotateClockwise()
-        );
+
     }
 
     @Override
     public void setPhysicalObject(PhysicalObject physicalObject) {
-        this.physicalObject = physicalObject;
+
+    }
+
+    @Override
+    public String[] getReponse() {
+        return new String[0];
     }
 
     @Override

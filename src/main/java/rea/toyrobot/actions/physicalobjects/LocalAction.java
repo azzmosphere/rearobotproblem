@@ -1,9 +1,10 @@
 package rea.toyrobot.actions.physicalobjects;
 
+import rea.toyrobot.actions.Action;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 
-public interface LocalAction {
+public interface LocalAction extends Action {
     /**
      * runs the action.
      *

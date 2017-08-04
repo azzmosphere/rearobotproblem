@@ -110,4 +110,14 @@ public class MoveAction implements GlobalAction {
     public void setPhysicalObject(PhysicalObject physicalObject) {
         this.physicalObject = physicalObject;
     }
+
+    @Override
+    public void setArgsIn(String[] argsIn) {
+
+    }
+
+    @Override
+    public boolean canPerformAction(String[] argsIn) {
+        return false;
+    }
 }

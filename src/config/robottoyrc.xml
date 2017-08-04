@@ -39,6 +39,10 @@ and defines the various configuration that the application needs
     <localactions>
         <localaction>rea.toyrobot.actions.physicalobjects.LeftAction</localaction>
         <localaction>rea.toyrobot.actions.physicalobjects.RightAction</localaction>
-        <localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>
     </localactions>
+
+    <!-- response actions are similar to local actions except that they return output -->
+    <localresponseactions>
+        <localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>
+    </localresponseactions>
 </robotconf>

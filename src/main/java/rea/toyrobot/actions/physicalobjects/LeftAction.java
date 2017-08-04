@@ -22,4 +22,14 @@ public class LeftAction implements LocalAction {
     public void setPhysicalObject(PhysicalObject physicalObject) {
         this.physicalObject = physicalObject;
     }
+
+    @Override
+    public void setArgsIn(String[] argsIn) {
+
+    }
+
+    @Override
+    public boolean canPerformAction(String[] argsIn) {
+        return false;
+    }
 }

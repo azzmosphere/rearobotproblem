@@ -15,7 +15,6 @@ public class PlaceAction implements WorldAction {
     private String[] argsIn;
     private PhysicalObjectFactory physicalObjectFactory;
     private World world;
-    private String response;
 
     @Override
     public void setWorld(World world) {
@@ -37,9 +36,6 @@ public class PlaceAction implements WorldAction {
                 physicalObject.getPerspective().setYPos(y);
                 physicalObject.getPerspective().getCompass().findCardinalDirection(args[2]);
             }
-            else {
-                response = "unable to place object at position " + x + ":" + y;
-            }
         }
         catch (RobotException e) {
             throw e;
@@ -55,11 +51,6 @@ public class PlaceAction implements WorldAction {
     @Override
     public void setArgsIn(String[] argsIn) {
         this.argsIn = argsIn;
-    }
-
-    @Override
-    public String[] getResponse() {
-        return new String[] {response};
     }
 
     @Override
