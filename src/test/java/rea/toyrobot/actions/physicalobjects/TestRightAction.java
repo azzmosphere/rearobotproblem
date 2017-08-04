@@ -13,7 +13,7 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
 
 public class TestRightAction {
-    private LocalAction RightActiong = new RightAction();
+    private LocalAction RightAction = new RightAction();
     private PhysicalObject robot = mock(PhysicalObject.class);
     private Perspective perspective = mock(Perspective.class);
     private PerspectiveCompass compass = mock(PerspectiveCompass.class);
@@ -22,13 +22,15 @@ public class TestRightAction {
     public void init() throws Exception {
         when(robot.getPerspective()).thenReturn(perspective);
         when(perspective.getCompass()).thenReturn(compass);
-        RightActiong.setPhysicalObject(robot);
+        when(compass.rotateClockwise()).thenReturn(compass);
+        RightAction.setPhysicalObject(robot);
     }
     @Test
     public void testMoveLeft() throws Exception {
-        RightActiong.runAction();
+        RightAction.runAction();
         verify(compass, atLeastOnce()).rotateClockwise();
         verify(compass, atMost(1)).rotateClockwise();
+        verify(perspective, atLeastOnce()).setCompass(compass);
     }
 
 }
