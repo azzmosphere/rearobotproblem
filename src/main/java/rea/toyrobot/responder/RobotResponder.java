@@ -8,4 +8,5 @@ public interface RobotResponder {
     boolean hasResponse();
     void setHasResponse(boolean hasResponse);
     String getResponse();
+    void setResponse(String response);
 }

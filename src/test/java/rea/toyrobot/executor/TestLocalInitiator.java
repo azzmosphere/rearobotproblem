@@ -5,6 +5,7 @@ import org.junit.Test;
 import rea.toyrobot.actions.physicalobjects.LocalAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
+import rea.toyrobot.responder.RobotResponder;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -13,9 +14,11 @@ public class TestLocalInitiator {
     LocalInitiator localInitiator = new LocalInitiator();
     LocalAction action1 = mock(LocalAction.class), action2 = mock(LocalAction.class);
     PhysicalObject physicalObject = mock(PhysicalObject.class);
+    RobotResponder responder = mock(RobotResponder.class);
 
     @Before
     public void init() {
+        localInitiator.setRobotResponder(responder);
         clearInvocations();
     }
 
