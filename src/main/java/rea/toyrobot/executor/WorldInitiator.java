@@ -6,7 +6,7 @@ import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
 import rea.toyrobot.worlds.World;
 
-public class WorldInitator extends AbstractInitiator<WorldAction> {
+public class WorldInitiator extends AbstractInitiator<WorldAction> {
     @Override
     protected void configureAction(WorldAction action, String[] cmd) {
 
@@ -37,7 +37,7 @@ public class WorldInitator extends AbstractInitiator<WorldAction> {
      *
      * @param physicalObjectFactory
      */
-    public void setPhysicalObject(PhysicalObjectFactory physicalObjectFactory) {
+    public void setPhysicalObjectFactory(PhysicalObjectFactory physicalObjectFactory) {
 
     }
 
