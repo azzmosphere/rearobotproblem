@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import rea.toyrobot.actions.world.WorldAction;
 import rea.toyrobot.physicalobjects.PhysicalObject;
-import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
+import rea.toyrobot.responder.RobotResponder;
 import rea.toyrobot.worlds.World;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -21,15 +21,16 @@ public class TestWorldInitiator {
     private WorldInitiator worldInitiator = new WorldInitiator();
 
     private PhysicalObject physicalObject = mock(PhysicalObject.class);
-    private PhysicalObjectFactory physicalObjectFactory = mock(PhysicalObjectFactory.class);
     private World world = mock(World.class);
     private WorldAction action1 = mock(WorldAction.class);
     private WorldAction action2 = mock(WorldAction.class);
+    private RobotResponder responder = mock(RobotResponder.class);
 
     @Before
     public void init() throws Exception {
         clearInvocations();
         worldInitiator.setWorld(world);
+        worldInitiator.setRobotResponder(responder);
         when(action1.runAction()).thenReturn(physicalObject);
         when(action2.runAction()).thenReturn(physicalObject);
     }
@@ -51,5 +52,6 @@ public class TestWorldInitiator {
 
         verify(action1).runAction();
         verify(action2, never()).runAction();
+        verify(responder).setHasResponse(true);
     }
 }

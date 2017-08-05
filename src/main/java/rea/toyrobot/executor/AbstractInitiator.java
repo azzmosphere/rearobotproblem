@@ -46,6 +46,8 @@ public abstract class AbstractInitiator<A extends Action> {
      * @throws RobotException
      */
     public final synchronized void execute(String[] cmd) {
+        robotResponder.setHasResponse(false);
+        robotResponder.setResponse(null);
         if (!verifyAction(cmd)) {
             robotResponder.setHasResponse(true);
             robotResponder.setResponse("could not be verified");
@@ -57,6 +59,7 @@ public abstract class AbstractInitiator<A extends Action> {
                 if (action.canPerformAction(cmd)) {
                     configureAction(action, cmd);
                     runAction(action);
+                    robotResponder.setHasResponse(true);
                     break;
                 }
             }
