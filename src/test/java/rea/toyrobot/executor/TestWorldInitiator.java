@@ -23,19 +23,20 @@ public class TestWorldInitiator {
     private PhysicalObject physicalObject = mock(PhysicalObject.class);
     private PhysicalObjectFactory physicalObjectFactory = mock(PhysicalObjectFactory.class);
     private World world = mock(World.class);
+    private WorldAction action1 = mock(WorldAction.class);
+    private WorldAction action2 = mock(WorldAction.class);
 
     @Before
     public void init() throws Exception {
         clearInvocations();
         worldInitiator.setPhysicalObjectFactory(physicalObjectFactory);
         worldInitiator.setWorld(world);
-        when(physicalObjectFactory.create()).thenReturn(physicalObject);
+        when(action1.runAction()).thenReturn(physicalObject);
+        when(action2.runAction()).thenReturn(physicalObject);
     }
 
     @Test
     public void testExecuteAction1() throws Exception {
-        WorldAction action1 = mock(WorldAction.class);
-        WorldAction action2 = mock(WorldAction.class);
 
         // only the first action should be performed.
         when(action1.canPerformAction(any())).thenReturn(true);

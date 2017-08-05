@@ -7,19 +7,25 @@ import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
 import rea.toyrobot.worlds.World;
 
 public class WorldInitiator extends AbstractInitiator<WorldAction> {
+    private PhysicalObject physicalObject;
+    private PhysicalObjectFactory physicalObjectFactory;
+    private World world;
+
     @Override
     protected void configureAction(WorldAction action, String[] cmd) {
-
+        action.setArgsIn(cmd);
+        action.setWorld(world);
+        action.setPhysicalObjectFactory(physicalObjectFactory);
     }
 
     @Override
     protected void runAction(WorldAction action) throws RobotException {
-
+        physicalObject = action.runAction();
     }
 
     @Override
     public boolean verifyAction(String[] cmd) {
-        return false;
+        return (physicalObjectFactory != null && world != null);
     }
 
     /**
@@ -28,7 +34,7 @@ public class WorldInitiator extends AbstractInitiator<WorldAction> {
      * @param world
      */
     public void setWorld(World world) {
-
+        this.world = world;
     }
 
     /**
@@ -38,7 +44,7 @@ public class WorldInitiator extends AbstractInitiator<WorldAction> {
      * @param physicalObjectFactory
      */
     public void setPhysicalObjectFactory(PhysicalObjectFactory physicalObjectFactory) {
-
+        this.physicalObjectFactory = physicalObjectFactory;
     }
 
     /**
@@ -47,7 +53,7 @@ public class WorldInitiator extends AbstractInitiator<WorldAction> {
      * @return
      */
     public PhysicalObject getPhysicalObject() {
-        return null;
+        return physicalObject;
     }
 }
 
