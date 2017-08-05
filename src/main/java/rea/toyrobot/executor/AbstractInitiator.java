@@ -11,7 +11,7 @@ import java.util.List;
  * Acts as a base class for actions that need to be executed.
  */
 
-public abstract class AbstractInitiator<A extends Action> {
+public abstract class AbstractInitiator<A extends Action> implements Initiator<A> {
     private final List<A> listeners = new ArrayList<>();
     private RobotResponder robotResponder;
 
@@ -69,8 +69,6 @@ public abstract class AbstractInitiator<A extends Action> {
             robotResponder.setResponse("could not process request " + e.getMessage());
         }
     }
-
-    public abstract boolean verifyAction(String[] cmd);
 
     public void setRobotResponder(RobotResponder robotResponder) {
         this.robotResponder = robotResponder;

@@ -33,9 +33,9 @@ public class TestRobotService {
     @Test
     public void testWorldInitiator() throws Exception {
         String[] cmd = new String[] {"TEST"};
-        when(worldInitiator.getRobotResponder()).thenReturn(robotResponder);
         when(worldInitiator.getPhysicalObject()).thenReturn(physicalObject);
         when(robotResponder.hasResponse()).thenReturn(true);
+        robotService.execute(cmd);
 
         verify(globalInitiator, never()).execute(cmd);
         verify(localInitiator, never()).execute(cmd);
@@ -52,15 +52,15 @@ public class TestRobotService {
 
         RobotResponder globalResponder = mock(RobotResponder.class);
         when(globalResponder.hasResponse()).thenReturn(true);
+        when(globalInitiator.getRobotResponder()).thenReturn(globalResponder);
 
-
+        robotService.execute(cmd);
         verify(localInitiator, never()).execute(cmd);
-        verify(worldInitiator, never()).execute(cmd);
         verify(globalInitiator, atLeastOnce()).execute(cmd);
         verify(globalInitiator, atMost(1)).execute(cmd);
     }
 
-   @Test
+    @Test
     public void testLocalInitiator() throws Exception {
         String[] cmd = new String[] {"TEST"};
         when(worldInitiator.getRobotResponder()).thenReturn(robotResponder);
@@ -69,13 +69,13 @@ public class TestRobotService {
 
         RobotResponder globalResponder = mock(RobotResponder.class);
         when(globalResponder.hasResponse()).thenReturn(false);
-
+        when(globalInitiator.getRobotResponder()).thenReturn(globalResponder);
 
         RobotResponder localResponder = mock(RobotResponder.class);
         when(localResponder.hasResponse()).thenReturn(true);
 
-        verify(globalInitiator, never()).execute(cmd);
-        verify(worldInitiator, never()).execute(cmd);
+        robotService.execute(cmd);
+
         verify(localInitiator, atLeastOnce()).execute(cmd);
         verify(localInitiator, atMost(1)).execute(cmd);
     }

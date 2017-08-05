@@ -1,3 +1,6 @@
 
 .PROBLEM.md.swp
 .idea/
+build/
+out/
+.gradle/

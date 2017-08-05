@@ -16,7 +16,7 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.never;
 
 public class TestLocalInitiator {
-    LocalInitiator localInitiator = new LocalInitiator();
+    LocalInitiatorImpl localInitiator = new LocalInitiatorImpl();
     LocalAction action1 = mock(LocalAction.class), action2 = mock(LocalAction.class);
     PhysicalObject physicalObject = mock(PhysicalObject.class);
     RobotResponder responder = mock(RobotResponder.class);

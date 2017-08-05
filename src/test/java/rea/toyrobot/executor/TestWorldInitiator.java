@@ -18,7 +18,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 
 public class TestWorldInitiator {
-    private WorldInitiator worldInitiator = new WorldInitiator();
+    private WorldInitiatorImpl worldInitiator = new WorldInitiatorImpl();
 
     private PhysicalObject physicalObject = mock(PhysicalObject.class);
     private World world = mock(World.class);

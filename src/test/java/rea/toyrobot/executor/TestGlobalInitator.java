@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class TestGlobalInitator {
-    private GlobalInitiator globalInitiator = new GlobalInitiator();
+    private GlobalInitiatorImpl globalInitiator = new GlobalInitiatorImpl();
     private World world = mock(World.class);
     private PhysicalObject physicalObject = mock(PhysicalObject.class);
     private RobotResponder responder = mock(RobotResponder.class);
