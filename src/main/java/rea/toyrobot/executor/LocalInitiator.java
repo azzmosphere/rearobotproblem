@@ -3,7 +3,6 @@ package rea.toyrobot.executor;
 import rea.toyrobot.actions.physicalobjects.LocalAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
-import rea.toyrobot.responder.RobotResponder;
 
 public class LocalInitiator extends AbstractInitiator<LocalAction> {
 

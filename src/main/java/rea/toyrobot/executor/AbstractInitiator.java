@@ -45,7 +45,7 @@ public abstract class AbstractInitiator<A extends Action> {
      * @param cmd
      * @throws RobotException
      */
-    public final void execute(String[] cmd) {
+    public final synchronized void execute(String[] cmd) {
         if (!verifyAction(cmd)) {
             robotResponder.setHasResponse(true);
             robotResponder.setResponse("could not be verified");
