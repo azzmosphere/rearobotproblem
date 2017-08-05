@@ -45,4 +45,8 @@ and defines the various configuration that the application needs
     <localresponseactions>
         <localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>
     </localresponseactions>
+
+    <clients>
+        <client>rea.toyrobot.client.RobotCLI</client>
+    </clients>
 </robotconf>

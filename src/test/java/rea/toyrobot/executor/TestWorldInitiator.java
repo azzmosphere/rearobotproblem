@@ -29,7 +29,6 @@ public class TestWorldInitiator {
     @Before
     public void init() throws Exception {
         clearInvocations();
-        worldInitiator.setPhysicalObjectFactory(physicalObjectFactory);
         worldInitiator.setWorld(world);
         when(action1.runAction()).thenReturn(physicalObject);
         when(action2.runAction()).thenReturn(physicalObject);
