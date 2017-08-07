@@ -17,4 +17,5 @@ public interface Initialiser {
     void setConfig(String xmlconfig);
     void initialise() throws RobotInitialisationException;
     List<RobotClient> getClients();
+    void setReaUnMarshaller(ReaUnMarshaller reaUnMarshaller);
 }

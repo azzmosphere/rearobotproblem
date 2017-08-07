@@ -10,6 +10,7 @@ package rea.toyrobot;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
+import rea.toyrobot.exceptions.RobotException;
 
 public class ReaToyRobot {
 
@@ -22,7 +23,23 @@ public class ReaToyRobot {
     @Option(name = "-h", usage = "print this help screen")
     private boolean help;
 
-    public void run() {
+    public void showHelp() {
+        System.out.println("-s [SCHEMA] XML Schema to use");
+        System.out.println("-c [CONFIG] configuration file");
+        System.out.println("-h show this help screen");
+    }
+
+    public void run() throws RobotException {
+        if (help) {
+            showHelp();
+            return;
+        }
+
+        if (xmlConfig == null || xmlSchema == null) {
+            System.out.println("missing required option");
+            showHelp();
+            return;
+        }
 
     }
 
@@ -35,8 +52,11 @@ public class ReaToyRobot {
 
         }
         catch (CmdLineException e) {
-            // TODO: ...
-            System.out.print("help");
+            System.out.println("ERROR: could not process command line option - " + e.getMessage());
+            bean.showHelp();
+        }
+        catch (RobotException e) {
+            System.out.print("ERROR: a fatal error has occurred " + e.getMessage());
         }
     }
 }
