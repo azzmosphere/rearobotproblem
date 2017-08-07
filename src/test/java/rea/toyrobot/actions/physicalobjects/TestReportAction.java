@@ -2,6 +2,7 @@ package rea.toyrobot.actions.physicalobjects;
 
 import org.junit.Before;
 import org.junit.Test;
+import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.perspective.Perspective;
 import rea.toyrobot.perspective.PerspectiveCompass;
 import rea.toyrobot.physicalobjects.PhysicalObject;
@@ -37,5 +38,10 @@ public class TestReportAction {
         reportAction.runAction();
         assertThat(responder.hasResponse(), is(true));
         assertThat(responder.getResponse(), is("1,2,NORTH"));
+    }
+
+    @Test
+    public void testCanPerformAction() throws Exception {
+        assertThat(reportAction.canPerformAction(new String[] {"REPORT"}), is(true));
     }
 }
