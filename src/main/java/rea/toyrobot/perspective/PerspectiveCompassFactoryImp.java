@@ -1,6 +1,5 @@
 package rea.toyrobot.perspective;
 
-import rea.toyrobot.config.mapper.RobotCompassConfig;
 import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.factories.ReaObjectFactory;
 
@@ -9,7 +8,17 @@ import rea.toyrobot.factories.ReaObjectFactory;
  */
 
 public class PerspectiveCompassFactoryImp extends ReaObjectFactory<PerspectiveCompass, EnumPerspectiveCompass> implements PerspectiveCompassFactory {
-    private RobotCompassConfig mapper;
+    private String initialPosition;
+
+    @Override
+    public void setInitialPosition(String initialPosition) {
+        this.initialPosition = initialPosition;
+    }
+
+    @Override
+    public String getInitialPosition() {
+        return initialPosition;
+    }
 
     public PerspectiveCompassFactoryImp() {
         super(EnumPerspectiveCompass.class);
@@ -24,16 +33,11 @@ public class PerspectiveCompassFactoryImp extends ReaObjectFactory<PerspectiveCo
     public PerspectiveCompass create() throws RobotInitialisationException {
         PerspectiveCompass object = null;
         for (PerspectiveCompass perspectiveCompass : EnumPerspectiveCompass.values()) {
-            if (perspectiveCompass.getCardinalDirection().equals(mapper.getInitialpos())) {
+            if (perspectiveCompass.getCardinalDirection().equals(initialPosition)) {
                 object = perspectiveCompass;
                 break;
             }
         }
         return object;
-    }
-
-    @Override
-    public void setObjectMapper(RobotCompassConfig mapper) {
-        this.mapper = mapper;
     }
 }

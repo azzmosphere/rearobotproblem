@@ -37,13 +37,18 @@ configurations {
 }
 task jaxb(){
     description 'Converts xsds to classes'
-    def jaxbTargetDir = file("src/main/java/config/mapper/jabx")
+    def jaxbTargetDir = file("src/main/java")
     doLast {
         jaxbTargetDir.mkdirs()
         ant.taskdef(name: 'xjc', classname: 'org.jvnet.jaxb2_commons.xjc.XJC2Task', classpath: configurations.jaxb.asPath)
-        ant.jaxbTargetDir = jaxbTargetDir
-        ant.xjc(destdir: '${jaxbTargetDir}', package: 'rea.robottoy.config.mapper', schema:'src/generated/robottoy.xsd', extension:'true'){
+         ant.jaxbTargetDir = jaxbTargetDir
+        ant.xjc(destdir: '${jaxbTargetDir}', package: 'rea.toyrobot.config.mapper.jabx',  schema:'src/generated/robottoy.xsd'){
             arg(value: "-Xannotate")
         }
+
+        // ant.jaxbTargetDir = jaxbTargetDir
+      //  ant.xjc(destdir: '${jaxbTargetDir}', package: 'rea.robottoy.config.mapper.jabx', schema:'src/generated/robottoy.xsd', extension:'true'){
+      //      arg(value: "-Xannotate")
+      //  }
     }
 }

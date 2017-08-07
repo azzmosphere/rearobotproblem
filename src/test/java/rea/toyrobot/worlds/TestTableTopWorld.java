@@ -6,9 +6,6 @@ import rea.toyrobot.exceptions.RobotDoesNotExistException;
 import rea.toyrobot.exceptions.RobotDuplicatedLocationException;
 import rea.toyrobot.exceptions.RobotOutOfBoundsException;
 
-import java.util.Map;
-import java.util.HashMap;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -17,12 +14,10 @@ public class TestTableTopWorld {
 
     @Before
     public void initWorld() throws Exception {
-        Map<String, Integer> worldConfig = new HashMap<>();
-
-        worldConfig.put("width", 5);
-        worldConfig.put("length", 5);
         tableTopWorld = new TableTopWorld();
-        tableTopWorld.initialise(worldConfig);
+        tableTopWorld.setLength(5);
+        tableTopWorld.setWidth(5);
+        tableTopWorld.initialise();
     }
 
     @Test

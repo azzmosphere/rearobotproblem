@@ -92,26 +92,13 @@ public class TableTopWorld implements World {
     }
 
 
-    //todo: this could be depreciated.
     @Override
-    public void initialise(Map defaults) throws RobotInitialisationException {
-        if (defaults.isEmpty() || !(defaults.containsKey("width") || defaults.containsKey("length"))) {
-            throw new RobotInitialisationException("width and length are required values for world");
-        }
-
+    public void initialise() throws RobotInitialisationException {
         try {
-            width = (int) defaults.get("width");
-            length = (int) defaults.get("length");
             coordinates = new boolean[width][length];
         }
-        catch (ClassCastException e) {
-            throw new RobotInitialisationException("width and length must be numbers");
-        }
-        catch (NullPointerException e) {
-            throw new RobotInitialisationException("width and length must be defined");
-        }
         catch (Exception e) {
-            throw new RobotInitialisationException("a unchecked exception has occurred details are " + e.getMessage());
+            throw new RobotInitialisationException("unable to initialise object " + e.getMessage());
         }
     }
 }

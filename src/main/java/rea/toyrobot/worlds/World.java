@@ -58,18 +58,11 @@ public interface World {
      */
     void relocateObject(int x, int y, int x2, int y2) throws RobotDuplicatedLocationException, RobotOutOfBoundsException, RobotDoesNotExistException;
 
-    /**
-     * initialises the robot interface, will throw an exception if a required
-     * value does not exist.
-     *
-     * @param defaults
-     * @throws RobotInitialisationException
-     */
-    void initialise(Map defaults) throws RobotInitialisationException;
-
     void setWidth(int width);
     int getWidth();
 
     void setLength(int length);
     int getLength();
+
+    void initialise() throws RobotInitialisationException;
 }

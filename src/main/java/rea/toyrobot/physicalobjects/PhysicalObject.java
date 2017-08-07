@@ -6,4 +6,8 @@ public interface PhysicalObject {
     Perspective getPerspective();
 
     void setPerspective(Perspective perspective);
+
+    void setGetType(String objectType);
+
+    String getType();
 }

@@ -9,8 +9,6 @@ import rea.toyrobot.exceptions.RobotInitialisationException;
  * @param <I>
  */
 
-public interface ReaObjectFactoryInterface<I, M> {
+public interface ReaObjectFactoryInterface<I> {
     I create() throws RobotInitialisationException;
-
-    void setObjectMapper(M mapper);
 }

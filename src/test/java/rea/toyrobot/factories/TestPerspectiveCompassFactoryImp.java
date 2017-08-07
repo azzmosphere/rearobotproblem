@@ -2,7 +2,6 @@ package rea.toyrobot.factories;
 
 import org.junit.Before;
 import org.junit.Test;
-import rea.toyrobot.config.mapper.RobotCompassConfig;
 import rea.toyrobot.perspective.PerspectiveCompassFactoryImp;
 import rea.toyrobot.perspective.PerspectiveCompass;
 import rea.toyrobot.perspective.PerspectiveCompassFactory;
@@ -14,13 +13,11 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 
 public class TestPerspectiveCompassFactoryImp {
-    private RobotCompassConfig mapper = mock(RobotCompassConfig.class);
     private PerspectiveCompassFactory perspectiveCompassFactory = new PerspectiveCompassFactoryImp();
 
     @Before
     public void init() {
-        when(mapper.getInitialpos()).thenReturn("NORTH");
-        perspectiveCompassFactory.setObjectMapper(mapper);
+        perspectiveCompassFactory.setInitialPosition("NORTH");
     }
 
     @Test
