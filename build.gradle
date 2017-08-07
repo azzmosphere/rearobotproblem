@@ -10,6 +10,8 @@ buildscript {
     }
 }
 
+version '1.0'
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'checkstyle'
@@ -22,15 +24,26 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    manifest {
+        attributes("Implementation-Title": "Table Top Robot",
+        "Implementation-Version": version,
+        "Main-Class": "rea.toyrobot.ReaToyRobot")
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 checkstyleMain {
     exclude '**/rea/toyrobot/config/mapper/jabx/**'
 }
 
 dependencies {
-    jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.7'
-    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-ant:0.6.5"
-    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics:0.6.4"
-    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-annotate:0.6.4"
+    // https://mvnrepository.com/artifact/args4j/args4j
+    compile group: 'args4j', name: 'args4j', version: '2.33'
+
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.mockito:mockito-core:2.+"
@@ -39,14 +52,14 @@ dependencies {
 configurations {
     jaxb
 }
-task jaxb(){
+task jaxb() {
     description 'Converts xsds to classes'
     def jaxbTargetDir = file("src/main/java")
     doLast {
         jaxbTargetDir.mkdirs()
         ant.taskdef(name: 'xjc', classname: 'org.jvnet.jaxb2_commons.xjc.XJC2Task', classpath: configurations.jaxb.asPath)
-         ant.jaxbTargetDir = jaxbTargetDir
-        ant.xjc(destdir: '${jaxbTargetDir}', package: 'rea.toyrobot.config.mapper.jabx',  schema:'src/generated/robottoy.xsd'){
+        ant.jaxbTargetDir = jaxbTargetDir
+        ant.xjc(destdir: '${jaxbTargetDir}', package: 'rea.toyrobot.config.mapper.jabx', schema: 'src/generated/robottoy.xsd') {
             arg(value: "-Xannotate")
         }
 

@@ -31,5 +31,32 @@
         </action>
     </ReaGlobalInitiator>
 
+    <!-- actions that affect the physical object but not the world -->
+    <ReaLocalInitiator>
+        <clazz>rea.toyrobot.executor.LocalInitiatorImpl</clazz>
+        <action>
+            <clazz>rea.toyrobot.actions.physicalobjects.LeftAction</clazz>
+        </action>
+        <action>
+            <clazz>rea.toyrobot.actions.physicalobjects.RightAction</clazz>
+        </action>
+        <action>
+            <clazz>rea.toyrobot.actions.physicalobjects.ReportAction</clazz>
+        </action>
+    </ReaLocalInitiator>
+
+    <ReaWorldInitiator>
+        <clazz>rea.toyrobot.executor.WorldInitiatorImpl</clazz>
+        <action>
+            <clazz>rea.toyrobot.actions.world.PlaceAction</clazz>
+        </action>
+    </ReaWorldInitiator>
+
+    <ReaRobotClients>
+        <client>
+            <clazz>rea.toyrobot.client.RobotCMDClient</clazz>
+        </client>
+    </ReaRobotClients>
+
 </toyRobot>
 
