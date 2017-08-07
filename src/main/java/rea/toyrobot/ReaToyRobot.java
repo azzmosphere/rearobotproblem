@@ -10,7 +10,13 @@ package rea.toyrobot;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
+import rea.toyrobot.client.RobotClientService;
+import rea.toyrobot.config.initialisers.Initialiser;
+import rea.toyrobot.config.initialisers.ReaInitialiser;
+import rea.toyrobot.config.initialisers.ReaJABXUnMarshaller;
 import rea.toyrobot.exceptions.RobotException;
+import rea.toyrobot.executor.RobotService;
+import rea.toyrobot.executor.RobotServiceImpl;
 
 public class ReaToyRobot {
 
@@ -40,6 +46,20 @@ public class ReaToyRobot {
             showHelp();
             return;
         }
+
+        Initialiser initialiser = new ReaInitialiser();
+        initialiser.setReaUnMarshaller(new ReaJABXUnMarshaller(xmlSchema, xmlConfig));
+        initialiser.initialise();
+
+        RobotService robotService = new RobotServiceImpl();
+        robotService.setWorldInitiator(initialiser.getWorldInitiator());
+        robotService.setLocalInitiator(initialiser.getLocalInitiator());
+        robotService.setGlobalInitiator(initialiser.getGlobalInitator());
+
+        RobotClientService robotClientService = new RobotClientService();
+        robotClientService.setClients(initialiser.getClients());
+        robotClientService.setRobotService(robotService);
+        robotClientService.run();
 
     }
 

@@ -13,7 +13,7 @@ import java.io.File;
 
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 
-public class ReaJABXUnMarshaller {
+public class ReaJABXUnMarshaller implements ReaUnMarshaller {
     private String fschema;
     private String fxml;
     private ToyRobot toyRobotConfig;
@@ -23,6 +23,7 @@ public class ReaJABXUnMarshaller {
         this.fxml = xml;
     }
 
+    @Override
     public void readConfigProperties() throws RobotInitialisationException {
 
         try {
@@ -53,6 +54,7 @@ public class ReaJABXUnMarshaller {
         }
     }
 
+    @Override
     public ToyRobot getToyRobotConfig() {
         return toyRobotConfig;
     }

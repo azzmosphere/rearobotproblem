@@ -10,12 +10,17 @@ package rea.toyrobot.config.initialisers;
 
 import rea.toyrobot.client.RobotClient;
 import rea.toyrobot.exceptions.RobotInitialisationException;
+import rea.toyrobot.executor.GlobalInitiator;
+import rea.toyrobot.executor.LocalInitiator;
+import rea.toyrobot.executor.WorldInitiator;
+
 import java.util.List;
 
 public interface Initialiser {
-    void setSchema(String xmlschema);
-    void setConfig(String xmlconfig);
     void initialise() throws RobotInitialisationException;
     List<RobotClient> getClients();
     void setReaUnMarshaller(ReaUnMarshaller reaUnMarshaller);
+    WorldInitiator getWorldInitiator();
+    GlobalInitiator getGlobalInitator();
+    LocalInitiator getLocalInitiator();
 }

@@ -2,7 +2,6 @@ package rea.toyrobot.actions.physicalobjects;
 
 import org.junit.Before;
 import org.junit.Test;
-import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.perspective.Perspective;
 import rea.toyrobot.perspective.PerspectiveCompass;
 import rea.toyrobot.physicalobjects.PhysicalObject;
