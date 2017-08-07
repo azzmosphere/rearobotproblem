@@ -1,59 +1,35 @@
-<?xml version="1.0"?>
-
-<!--
-Robot Toy configuration file.  This file is loaded by the robot toy app
-and defines the various configuration that the application needs
--->
-
-<robotconf>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<toyRobot>
+    <!-- The world that the application should use -->
     <world>
+        <width>5</width>
+        <length>5</length>
         <clazz>rea.toyrobot.worlds.TableTopWorld</clazz>
-        <attribute name="width">5</attribute>
-        <attribute name="length">5</attribute>
     </world>
 
+    <!-- generates the compass factory -->
+    <compassFactory>
+        <initialPosition>NORTH</initialPosition>
+        <clazz>rea.toyrobot.perspective.PerspectiveCompassFactoryImp</clazz>
+    </compassFactory>
 
-    <!--&lt;!&ndash;-->
-    <!--The object factories are used to produce the concrete classes-->
-    <!--used by the robot toy app-->
-    <!--&ndash;&gt;-->
-    <!--<objectfactories>-->
-        <!--<worldfactory>rea.toyrobot.factories.RectangleWorldFactory</worldfactory>-->
-        <!--<compassfactory>rea.toyrobot.factories.CompassFactory</compassfactory>-->
-        <!--<perspectivefactory>rea.toyrobot.factories.WorldViewFactory</perspectivefactory>-->
-    <!--</objectfactories>-->
+    <!-- generates the perspective factory -->
+    <ReaPerspectiveFactory>
+        <clazz>rea.toyrobot.perspective.RobotPerspectiveFactory</clazz>
+    </ReaPerspectiveFactory>
 
-    <!--&lt;!&ndash; world configuration &ndash;&gt;-->
-    <!--<worldconfig>-->
-        <!--<width>5</width>-->
-        <!--<length>5</length>-->
-    <!--</worldconfig>-->
+    <!-- generates the main physical object factory -->
+    <ReaPhysicalObjectFactory>
+        <clazz>rea.toyrobot.physicalobjects.ToyRobotFactory</clazz>
+    </ReaPhysicalObjectFactory>
 
-    <!--&lt;!&ndash; compass configuration &ndash;&gt;-->
-    <!--<compassconfig>-->
-        <!--&lt;!&ndash; the place command will override this anyway &ndash;&gt;-->
-        <!--<initialpos>NORTH</initialpos>-->
-    <!--</compassconfig>-->
+    <!-- generates the global initiator as well populates the actions that it can use -->
+    <ReaGlobalInitiator>
+        <clazz>rea.toyrobot.executor.GlobalInitiatorImpl</clazz>
+        <action>
+            <clazz>rea.toyrobot.actions.physicalobjects.MoveAction</clazz>
+        </action>
+    </ReaGlobalInitiator>
 
-    <!--<worldactions>-->
-        <!--<worldaction>rea.toyrobot.actions.world.PlaceAction</worldaction>-->
-    <!--</worldactions>-->
+</toyRobot>
 
-    <!--<globalactions>-->
-        <!--<globalaction>rea.toyrobot.actions.physicalobjects.MoveAction</globalaction>-->
-    <!--</globalactions>-->
-
-    <!--<localactions>-->
-        <!--<localaction>rea.toyrobot.actions.physicalobjects.LeftAction</localaction>-->
-        <!--<localaction>rea.toyrobot.actions.physicalobjects.RightAction</localaction>-->
-    <!--</localactions>-->
-
-    <!--&lt;!&ndash; response actions are similar to local actions except that they return output &ndash;&gt;-->
-    <!--<localresponseactions>-->
-        <!--<localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>-->
-    <!--</localresponseactions>-->
-
-    <!--<clients>-->
-        <!--<client>rea.toyrobot.client.RobotCLI</client>-->
-    <!--</clients>-->
-</robotconf>
