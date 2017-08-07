@@ -66,4 +66,10 @@ public interface World {
      * @throws RobotInitialisationException
      */
     void initialise(Map defaults) throws RobotInitialisationException;
+
+    void setWidth(int width);
+    int getWidth();
+
+    void setLength(int length);
+    int getLength();
 }

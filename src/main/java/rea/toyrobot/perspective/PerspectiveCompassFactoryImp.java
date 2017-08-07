@@ -2,13 +2,13 @@ package rea.toyrobot.perspective;
 
 import rea.toyrobot.config.mapper.RobotCompassConfig;
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.factories.ObjectFactory;
+import rea.toyrobot.factories.ReaObjectFactory;
 
 /**
  * implementation of EnumPerspectiveCompass factory.
  */
 
-public class PerspectiveCompassFactoryImp extends ObjectFactory<PerspectiveCompass, EnumPerspectiveCompass> implements PerspectiveCompassFactory {
+public class PerspectiveCompassFactoryImp extends ReaObjectFactory<PerspectiveCompass, EnumPerspectiveCompass> implements PerspectiveCompassFactory {
     private RobotCompassConfig mapper;
 
     public PerspectiveCompassFactoryImp() {

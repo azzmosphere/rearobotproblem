@@ -1,0 +1,3 @@
+<jxb:bindings schemaLocation = "robottoy.xsd" node="/toyrobot">
+<!-- custom bindings defined beneath -->
+</jxb:bindings>

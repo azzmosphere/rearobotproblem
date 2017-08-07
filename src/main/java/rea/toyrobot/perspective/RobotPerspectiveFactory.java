@@ -5,9 +5,9 @@ package rea.toyrobot.perspective;
  */
 
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.factories.ObjectFactory;
+import rea.toyrobot.factories.ReaObjectFactory;
 
-public class RobotPerspectiveFactory extends ObjectFactory<Perspective, RobotPerspective> implements PerspectiveFactory {
+public class RobotPerspectiveFactory extends ReaObjectFactory<Perspective, RobotPerspective> implements PerspectiveFactory {
     public RobotPerspectiveFactory() {
         super(RobotPerspective.class);
     }

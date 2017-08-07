@@ -18,6 +18,26 @@ public class TableTopWorld implements World {
     boolean[][] coordinates;
 
     @Override
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    @Override
+    public int getLength() {
+        return length;
+    }
+
+    @Override
     public boolean canMoveTo(int x, int y) {
         boolean rv = false;
 
@@ -71,6 +91,8 @@ public class TableTopWorld implements World {
         setObject(x2, y2);
     }
 
+
+    //todo: this could be depreciated.
     @Override
     public void initialise(Map defaults) throws RobotInitialisationException {
         if (defaults.isEmpty() || !(defaults.containsKey("width") || defaults.containsKey("length"))) {

@@ -1,0 +1,27 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+           elementFormDefault="qualified">
+    <xs:element name="toyrobot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="world">
+                    <xs:complexType>
+                        <xs:attribute type="xs:int" name="width"/>
+                        <xs:attribute type="xs:int" name="lenght"/>
+                        <xs:attribute type="xs:string" name="clazz"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="compass">
+                    <xs:complexType>
+                        <xs:attribute type="xs:string" name="initialpos" />
+                        <xs:attribute type="xs:string" name="clazz" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="physicalobject">
+                        <xs:complexType>
+                            <xs:attribute type="xs:string" name="clazz" />
+                        </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

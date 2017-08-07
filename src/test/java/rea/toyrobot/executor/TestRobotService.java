@@ -14,7 +14,7 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
 
 public class TestRobotService {
-    private RobotService robotService = new RobotService();
+    private RobotService robotService = new RobotServiceImpl();
     private GlobalInitiator globalInitiator = mock(GlobalInitiator.class);
     private LocalInitiator localInitiator = mock(LocalInitiator.class);
     private WorldInitiator worldInitiator = mock(WorldInitiator.class);

@@ -6,47 +6,54 @@ and defines the various configuration that the application needs
 -->
 
 <robotconf>
-    <!--
-    The object factories are used to produce the concrete classes
-    used by the robot toy app
-    -->
-    <objectfactories>
-        <worldfactory>rea.toyrobot.factories.RectangleWorldFactory</worldfactory>
-        <compassfactory>rea.toyrobot.factories.CompassFactory</compassfactory>
-        <perspectivefactory>rea.toyrobot.factories.WorldViewFactory</perspectivefactory>
-    </objectfactories>
+    <world>
+        <clazz>rea.toyrobot.worlds.TableTopWorld</clazz>
+        <attribute name="width">5</attribute>
+        <attribute name="length">5</attribute>
+    </world>
 
-    <!-- world configuration -->
-    <worldconfig>
-        <width>5</width>
-        <length>5</length>
-    </worldconfig>
 
-    <!-- compass configuration -->
-    <compassconfig>
-        <!-- the place command will override this anyway -->
-        <initialpos>NORTH</initialpos>
-    </compassconfig>
+    <!--&lt;!&ndash;-->
+    <!--The object factories are used to produce the concrete classes-->
+    <!--used by the robot toy app-->
+    <!--&ndash;&gt;-->
+    <!--<objectfactories>-->
+        <!--<worldfactory>rea.toyrobot.factories.RectangleWorldFactory</worldfactory>-->
+        <!--<compassfactory>rea.toyrobot.factories.CompassFactory</compassfactory>-->
+        <!--<perspectivefactory>rea.toyrobot.factories.WorldViewFactory</perspectivefactory>-->
+    <!--</objectfactories>-->
 
-    <worldactions>
-        <worldaction>rea.toyrobot.actions.world.PlaceAction</worldaction>
-    </worldactions>
+    <!--&lt;!&ndash; world configuration &ndash;&gt;-->
+    <!--<worldconfig>-->
+        <!--<width>5</width>-->
+        <!--<length>5</length>-->
+    <!--</worldconfig>-->
 
-    <globalactions>
-        <globalaction>rea.toyrobot.actions.physicalobjects.MoveAction</globalaction>
-    </globalactions>
+    <!--&lt;!&ndash; compass configuration &ndash;&gt;-->
+    <!--<compassconfig>-->
+        <!--&lt;!&ndash; the place command will override this anyway &ndash;&gt;-->
+        <!--<initialpos>NORTH</initialpos>-->
+    <!--</compassconfig>-->
 
-    <localactions>
-        <localaction>rea.toyrobot.actions.physicalobjects.LeftAction</localaction>
-        <localaction>rea.toyrobot.actions.physicalobjects.RightAction</localaction>
-    </localactions>
+    <!--<worldactions>-->
+        <!--<worldaction>rea.toyrobot.actions.world.PlaceAction</worldaction>-->
+    <!--</worldactions>-->
 
-    <!-- response actions are similar to local actions except that they return output -->
-    <localresponseactions>
-        <localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>
-    </localresponseactions>
+    <!--<globalactions>-->
+        <!--<globalaction>rea.toyrobot.actions.physicalobjects.MoveAction</globalaction>-->
+    <!--</globalactions>-->
 
-    <clients>
-        <client>rea.toyrobot.client.RobotCLI</client>
-    </clients>
+    <!--<localactions>-->
+        <!--<localaction>rea.toyrobot.actions.physicalobjects.LeftAction</localaction>-->
+        <!--<localaction>rea.toyrobot.actions.physicalobjects.RightAction</localaction>-->
+    <!--</localactions>-->
+
+    <!--&lt;!&ndash; response actions are similar to local actions except that they return output &ndash;&gt;-->
+    <!--<localresponseactions>-->
+        <!--<localaction>rea.toyrobot.actions.physicalobjects.ReportAction</localaction>-->
+    <!--</localresponseactions>-->
+
+    <!--<clients>-->
+        <!--<client>rea.toyrobot.client.RobotCLI</client>-->
+    <!--</clients>-->
 </robotconf>

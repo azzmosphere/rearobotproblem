@@ -16,12 +16,12 @@ import rea.toyrobot.exceptions.RobotInitialisationException;
  *  where World is a interface.
  */
 
-public abstract class ObjectFactory<I, C extends I> {
+public abstract class ReaObjectFactory<I, C extends I> {
 
     private  Class<C> concreteClass;
     private I instance;
 
-    public  ObjectFactory(Class<C> concreteClass) {
+    public  ReaObjectFactory(Class<C> concreteClass) {
         this.concreteClass = concreteClass;
     }
 
@@ -40,9 +40,7 @@ public abstract class ObjectFactory<I, C extends I> {
     public I create() throws RobotInitialisationException {
 
         try {
-            if (instance == null) {
-                instance = init(concreteClass.newInstance());
-            }
+            instance = init(concreteClass.newInstance());
         }
         catch (InstantiationException e) {
             throw new RobotInitialisationException("unable to instantiate new object " + e.getMessage());

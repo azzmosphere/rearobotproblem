@@ -1,6 +1,5 @@
 package rea.toyrobot.executor;
 
-import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.responder.RobotResponder;
 
 public interface Initiator<A> {
@@ -14,7 +13,6 @@ public interface Initiator<A> {
      * execute the first listener that matches the action then exist.
      *
      * @param cmd
-     * @throws RobotException
      */
     void execute(String[] cmd);
 

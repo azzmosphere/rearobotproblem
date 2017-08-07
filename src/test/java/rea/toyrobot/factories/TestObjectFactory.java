@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 public class TestObjectFactory {
 
-    private ObjectFactory<TestClassI, TestClassC> objectFactory = new ObjectFactory(TestClassC.class) {
+    private ReaObjectFactory<TestClassI, TestClassC> objectFactory = new ReaObjectFactory(TestClassC.class) {
         @Override
         protected Object init(Object object) {
             return object;
@@ -27,6 +27,6 @@ public class TestObjectFactory {
     public void testInstance() throws Exception {
         TestClassI c1 = objectFactory.create(), c2 = objectFactory.create();
 
-        assertThat(c1, is(c2));
+        assertThat(c1, not(c2));
     }
 }

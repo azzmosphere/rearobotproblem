@@ -1,7 +1,7 @@
 package rea.toyrobot.perspective;
 
 import rea.toyrobot.config.mapper.RobotCompassConfig;
-import rea.toyrobot.factories.ObjectFactoryInterface;
+import rea.toyrobot.factories.ReaObjectFactoryInterface;
 
-public interface PerspectiveCompassFactory extends ObjectFactoryInterface<PerspectiveCompass, RobotCompassConfig> {
+public interface PerspectiveCompassFactory extends ReaObjectFactoryInterface<PerspectiveCompass, RobotCompassConfig> {
 }
