@@ -58,6 +58,7 @@ public abstract class AbstractInitiator<A extends Action> implements Initiator<A
             for (A action : listeners) {
                 if (action.canPerformAction(cmd)) {
                     configureAction(action, cmd);
+                    action.setResponse(robotResponder);
                     runAction(action);
                     robotResponder.setHasResponse(true);
                     break;

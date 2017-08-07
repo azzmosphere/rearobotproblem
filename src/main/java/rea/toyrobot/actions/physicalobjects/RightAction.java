@@ -4,10 +4,11 @@ package rea.toyrobot.actions.physicalobjects;
  * Rotates a physical object clockwise.
  */
 
+import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 
-public class RightAction implements LocalAction {
+public class RightAction extends AbstractAction implements LocalAction {
     PhysicalObject physicalObject;
 
     @Override

@@ -1,5 +1,7 @@
 package rea.toyrobot.actions;
 
+import rea.toyrobot.responder.RobotResponder;
+
 public interface Action {
     /**
      * The arguments that
@@ -14,4 +16,6 @@ public interface Action {
      * @return
      */
     boolean canPerformAction(String argsIn[]);
+
+    void setResponse(RobotResponder response);
 }

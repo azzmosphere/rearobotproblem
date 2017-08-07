@@ -4,10 +4,11 @@ package rea.toyrobot.actions.physicalobjects;
  * Moves a physical object 90 degrees to its left hand side.
  */
 
+import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 
-public class LeftAction implements LocalAction {
+public class LeftAction extends AbstractAction implements LocalAction {
     private PhysicalObject physicalObject;
 
     @Override

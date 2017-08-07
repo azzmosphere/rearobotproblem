@@ -4,11 +4,12 @@ package rea.toyrobot.actions.physicalobjects;
  * moves the object one unit.
  */
 
+import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.worlds.World;
 
-public class MoveAction implements GlobalAction {
+public class MoveAction extends AbstractAction implements GlobalAction {
     private World world;
     private PhysicalObject physicalObject;
 

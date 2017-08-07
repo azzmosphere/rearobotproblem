@@ -5,13 +5,14 @@ package rea.toyrobot.actions.world;
  * objects perspective to match its position in the world.
  */
 
+import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
 import rea.toyrobot.worlds.World;
 
-public class PlaceAction implements WorldAction {
+public class PlaceAction extends AbstractAction implements WorldAction {
     private String[] argsIn;
     private PhysicalObjectFactory physicalObjectFactory;
     private World world;

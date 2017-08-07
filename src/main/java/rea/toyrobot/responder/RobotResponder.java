@@ -9,4 +9,6 @@ public interface RobotResponder {
     void setHasResponse(boolean hasResponse);
     String getResponse();
     void setResponse(String response);
+    boolean terminateClient();
+    void setTerminateClient(boolean terminateClient);
 }

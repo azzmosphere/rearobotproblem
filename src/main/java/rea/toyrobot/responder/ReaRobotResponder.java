@@ -2,7 +2,7 @@ package rea.toyrobot.responder;
 
 public class ReaRobotResponder implements RobotResponder {
 
-    private boolean hasResponse;
+    private boolean hasResponse, terminateClient;
     private String response;
 
     @Override
@@ -23,5 +23,15 @@ public class ReaRobotResponder implements RobotResponder {
     @Override
     public void setResponse(String response) {
         this.response = response;
+    }
+
+    @Override
+    public boolean terminateClient() {
+        return terminateClient;
+    }
+
+    @Override
+    public void setTerminateClient(boolean terminiateClient) {
+        this.terminateClient = terminiateClient;
     }
 }

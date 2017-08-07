@@ -1,9 +1,10 @@
 package rea.toyrobot.actions.physicalobjects;
 
+import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 
-public class ReportAction implements LocalResponseAction {
+public class ReportAction extends AbstractAction implements LocalAction {
     @Override
     public void runAction() throws RobotException {
 
@@ -12,11 +13,6 @@ public class ReportAction implements LocalResponseAction {
     @Override
     public void setPhysicalObject(PhysicalObject physicalObject) {
 
-    }
-
-    @Override
-    public String[] getReponse() {
-        return new String[0];
     }
 
     @Override
