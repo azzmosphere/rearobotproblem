@@ -6,8 +6,6 @@ import rea.toyrobot.exceptions.RobotDuplicatedLocationException;
 import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.exceptions.RobotOutOfBoundsException;
 
-import java.util.Map;
-
 /**
  * Implements the table top world for the robot toy. For more detailed
  * documentation of what the methods do, review the interface.

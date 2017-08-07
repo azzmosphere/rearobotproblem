@@ -8,7 +8,6 @@
 
     <property name="severity" value="error"/>
 
-
     <!-- module name="StrictDuplicateCode">
            <property name="min" value="10"/>
         <property name="severity" value="warning"/>
@@ -144,5 +143,6 @@
         <property name="onCommentFormat" value="CHECKSON\: ([\w\|]+)"/>
         <property name="checkFormat" value="$1"/>
     </module>
+
 
 </module>

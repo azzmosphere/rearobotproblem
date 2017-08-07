@@ -22,6 +22,10 @@ repositories {
     mavenCentral()
 }
 
+checkstyleMain {
+    exclude '**/rea/toyrobot/config/mapper/jabx/**'
+}
+
 dependencies {
     jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.7'
     jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-ant:0.6.5"
@@ -46,9 +50,6 @@ task jaxb(){
             arg(value: "-Xannotate")
         }
 
-        // ant.jaxbTargetDir = jaxbTargetDir
-      //  ant.xjc(destdir: '${jaxbTargetDir}', package: 'rea.robottoy.config.mapper.jabx', schema:'src/generated/robottoy.xsd', extension:'true'){
-      //      arg(value: "-Xannotate")
-      //  }
     }
 }
+

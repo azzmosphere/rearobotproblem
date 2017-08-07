@@ -7,24 +7,22 @@ package rea.toyrobot.physicalobjects;
 
 import rea.toyrobot.perspective.Perspective;
 
-public class ToyRobot implements PhysicalObject{
+public class ToyRobot implements PhysicalObject {
+    private static final String PO_TYPE = "ToyRobot";
+    private Perspective perspective;
+
     @Override
     public Perspective getPerspective() {
-        return null;
+        return perspective;
     }
 
     @Override
     public void setPerspective(Perspective perspective) {
-
-    }
-
-    @Override
-    public void setGetType(String objectType) {
-
+        this.perspective = perspective;
     }
 
     @Override
     public String getType() {
-        return null;
+        return PO_TYPE;
     }
 }

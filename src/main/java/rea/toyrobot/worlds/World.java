@@ -5,8 +5,6 @@ import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.exceptions.RobotOutOfBoundsException;
 import rea.toyrobot.exceptions.RobotDoesNotExistException;
 
-import java.util.Map;
-
 /**
  * A world is a physical plane where a robot or other object can move about.
  *

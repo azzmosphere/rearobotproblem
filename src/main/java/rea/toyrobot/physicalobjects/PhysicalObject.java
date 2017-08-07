@@ -7,7 +7,5 @@ public interface PhysicalObject {
 
     void setPerspective(Perspective perspective);
 
-    void setGetType(String objectType);
-
     String getType();
 }

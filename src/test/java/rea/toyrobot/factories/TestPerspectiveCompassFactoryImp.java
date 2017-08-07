@@ -6,8 +6,6 @@ import rea.toyrobot.perspective.PerspectiveCompassFactoryImp;
 import rea.toyrobot.perspective.PerspectiveCompass;
 import rea.toyrobot.perspective.PerspectiveCompassFactory;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
