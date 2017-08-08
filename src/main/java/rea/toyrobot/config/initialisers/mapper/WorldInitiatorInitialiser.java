@@ -18,7 +18,7 @@ public class WorldInitiatorInitialiser extends AbstractInitMapper<WorldInitiator
         instance.setWorld(world);
 
         for (ToyRobot.ReaWorldInitiator.Action action : config.getReaWorldInitiator().getAction()) {
-            instance.addAction(worldActionInialiser.map((String) action.getClazz()));
+            instance.addAction(worldActionInialiser.map(action.getClazz()));
         }
     }
 

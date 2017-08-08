@@ -26,7 +26,8 @@ public class RobotCMDClient implements RobotClient {
             while (!isExit) {
 
                 RobotResponder robotResponder = new ReaRobotResponder();
-                robotService.execute(br.readLine().split(" *"));
+                robotService.setRobotResponder(robotResponder);
+                robotService.execute(br.readLine().split("\\s+"));
 
                 if (robotResponder.hasResponse()) {
                     System.out.println(robotResponder.getResponse());
