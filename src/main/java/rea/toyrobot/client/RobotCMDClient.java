@@ -29,7 +29,7 @@ public class RobotCMDClient implements RobotClient {
                 robotService.setRobotResponder(robotResponder);
                 robotService.execute(br.readLine().split("\\s+"));
 
-                if (robotResponder.hasResponse()) {
+                if (robotResponder.hasResponse() && robotResponder.getResponse() != null) {
                     System.out.println(robotResponder.getResponse());
                 }
 

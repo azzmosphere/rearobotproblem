@@ -6,6 +6,7 @@ import rea.toyrobot.perspective.Perspective;
 import rea.toyrobot.perspective.PerspectiveCompass;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
+import rea.toyrobot.responder.RobotResponder;
 import rea.toyrobot.worlds.World;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,15 +22,18 @@ public class TestPlaceAction {
     private PhysicalObjectFactory factory = mock(PhysicalObjectFactory.class);
     private Perspective perspective = mock(Perspective.class);
     private PerspectiveCompass perspectiveCompass = mock(PerspectiveCompass.class);
+    private RobotResponder responder = mock(RobotResponder.class);
 
     @Before
     public void init() throws Exception {
         placeAction.setWorld(tableTop);
         placeAction.setPhysicalObjectFactory(factory);
+        placeAction.setResponse(responder);
 
         when(factory.create()).thenReturn(robot);
         when(robot.getPerspective()).thenReturn(perspective);
         when(perspective.getCompass()).thenReturn(perspectiveCompass);
+        when(perspectiveCompass.findCardinalDirection("NORTH")).thenReturn(perspectiveCompass);
     }
 
     @Test

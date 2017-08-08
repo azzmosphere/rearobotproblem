@@ -50,7 +50,7 @@ public abstract class AbstractInitiator<A extends Action> implements Initiator<A
         robotResponder.setResponse(null);
         if (!verifyAction(cmd)) {
             robotResponder.setHasResponse(true);
-            robotResponder.setResponse("could not be verified");
+            robotResponder.setResponse("action could not be verified");
             return;
         }
 

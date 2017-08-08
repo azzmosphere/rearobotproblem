@@ -28,14 +28,23 @@ public class PlaceAction extends AbstractAction implements WorldAction {
         try {
             String[] args = argsIn[1].split(",");
             int x = Integer.parseInt(args[0]), y = Integer.parseInt(args[1]);
+            getResponder().setHasResponse(true);
 
-            if (world.canMoveTo(x, y)) {
+            if (physicalObject != null && physicalObject.getPerspective().getCompass().findCardinalDirection(args[2]) == null) {
+                getResponder().setResponse("WARN: unsupported compass direction");
+            }
+            else if (world.canMoveTo(x, y)) {
                 world.setObject(x, y);
 
                 physicalObject = physicalObjectFactory.create();
                 physicalObject.getPerspective().setXPos(x);
                 physicalObject.getPerspective().setYPos(y);
-                physicalObject.getPerspective().getCompass().findCardinalDirection(args[2]);
+                physicalObject.getPerspective().setCompass(
+                    physicalObject.getPerspective().getCompass().findCardinalDirection(args[2])
+                );
+            }
+            else {
+                getResponder().setResponse("WARN: Unable to move to " + x + ":" + y);
             }
         }
         catch (RobotException e) {

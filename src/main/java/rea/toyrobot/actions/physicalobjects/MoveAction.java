@@ -102,9 +102,15 @@ public class MoveAction extends AbstractAction implements GlobalAction {
             }
         }
 
-        physicalObject.getPerspective().setXPos(x);
-        physicalObject.getPerspective().setYPos(y);
-        world.setObject(x, y);
+        if (world.canMoveTo(x, y)) {
+            world.relocateObject(physicalObject.getPerspective().getXPos(), physicalObject.getPerspective().getYpos(), x , y);
+            physicalObject.getPerspective().setXPos(x);
+            physicalObject.getPerspective().setYPos(y);
+        }
+        else {
+            getResponder().setResponse("WARN: Unable to move to " + x + ":" + y + " there is all ready a object there");
+        }
+        getResponder().setHasResponse(true);
     }
 
     @Override

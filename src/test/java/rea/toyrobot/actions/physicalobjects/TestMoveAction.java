@@ -6,6 +6,7 @@ import org.mockito.ArgumentCaptor;
 import rea.toyrobot.perspective.Perspective;
 import rea.toyrobot.perspective.PerspectiveCompass;
 import rea.toyrobot.physicalobjects.PhysicalObject;
+import rea.toyrobot.responder.RobotResponder;
 import rea.toyrobot.worlds.World;
 
 import static org.mockito.Mockito.mock;
@@ -17,17 +18,23 @@ import static org.hamcrest.CoreMatchers.is;
 public class TestMoveAction {
     private GlobalAction moveAction = new MoveAction();
     private ArgumentCaptor<Integer> yarg = ArgumentCaptor.forClass(Integer.class);
+
+    private ArgumentCaptor<Integer> xoArgWorld = ArgumentCaptor.forClass(Integer.class);
+    private ArgumentCaptor<Integer> yoArgWorld = ArgumentCaptor.forClass(Integer.class);
     private ArgumentCaptor<Integer> xargWorld = ArgumentCaptor.forClass(Integer.class);
     private ArgumentCaptor<Integer> yargWorld = ArgumentCaptor.forClass(Integer.class);
+
     private PhysicalObject physicalObjectMock = mock(PhysicalObject.class);
     private Perspective perspective = mock(Perspective.class);
     private World world = mock(World.class);
     private PerspectiveCompass perspectiveCompass = mock(PerspectiveCompass.class);
+    private RobotResponder responder = mock(RobotResponder.class);
 
     @Before
     public void init() {
         moveAction.setPhysicalObject(physicalObjectMock);
         moveAction.setWorld(world);
+        moveAction.setResponse(responder);
         when(physicalObjectMock.getPerspective()).thenReturn(perspective);
         when(perspective.getXPos()).thenReturn(1);
         when(perspective.getYpos()).thenReturn(1);
@@ -40,10 +47,12 @@ public class TestMoveAction {
         when(world.canMoveTo(1, 2)).thenReturn(true);
         moveAction.runAction();
         verify(perspective).setYPos(yarg.capture());
-        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        verify(world).relocateObject(xoArgWorld.capture(), yoArgWorld.capture(), xargWorld.capture(), yargWorld.capture());
         assertThat(yarg.getValue(), is(2));
         assertThat(xargWorld.getValue(), is(1));
         assertThat(yargWorld.getValue(), is(2));
+        assertThat(xoArgWorld.getValue(), is(1));
+        assertThat(yoArgWorld.getValue(), is(1));
     }
 
     @Test
@@ -52,10 +61,12 @@ public class TestMoveAction {
         when(world.canMoveTo(2, 1)).thenReturn(true);
         moveAction.runAction();
         verify(perspective).setXPos(yarg.capture());
-        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        verify(world).relocateObject(xoArgWorld.capture(), yoArgWorld.capture(), xargWorld.capture(), yargWorld.capture());
         assertThat(yarg.getValue(), is(2));
         assertThat(xargWorld.getValue(), is(2));
         assertThat(yargWorld.getValue(), is(1));
+        assertThat(xoArgWorld.getValue(), is(1));
+        assertThat(yoArgWorld.getValue(), is(1));
     }
 
     @Test
@@ -64,10 +75,12 @@ public class TestMoveAction {
         when(world.canMoveTo(1, 0)).thenReturn(true);
         moveAction.runAction();
         verify(perspective).setYPos(yarg.capture());
-        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        verify(world).relocateObject(xoArgWorld.capture(), yoArgWorld.capture(), xargWorld.capture(), yargWorld.capture());
         assertThat(yarg.getValue(), is(0));
         assertThat(xargWorld.getValue(), is(1));
         assertThat(yargWorld.getValue(), is(0));
+        assertThat(xoArgWorld.getValue(), is(1));
+        assertThat(yoArgWorld.getValue(), is(1));
     }
 
     @Test
@@ -76,10 +89,12 @@ public class TestMoveAction {
         when(world.canMoveTo(0, 1)).thenReturn(true);
         moveAction.runAction();
         verify(perspective).setXPos(yarg.capture());
-        verify(world).setObject(xargWorld.capture(), yargWorld.capture());
+        verify(world).relocateObject(xoArgWorld.capture(), yoArgWorld.capture(), xargWorld.capture(), yargWorld.capture());
         assertThat(yarg.getValue(), is(0));
         assertThat(xargWorld.getValue(), is(0));
         assertThat(yargWorld.getValue(), is(1));
+        assertThat(xoArgWorld.getValue(), is(1));
+        assertThat(yoArgWorld.getValue(), is(1));
     }
 
     @Test
