@@ -5,44 +5,56 @@ The Toy Robot application is designed to be as flexible as possible.  With
 that in mind aside from the initialiser all concrete classes are produced by
 a factory that complies to a interface and is dynamically loaded.
 
-The idea is that the program can be extended with no code changes, new code
-can be added, or minimal code changes.
+The idea is that the program can be extended minimal code changes.
 
 to run the program the following command is used:
 
-``
-rearobotproblem -s path/to/schema/robottoy.xsd -c /path/to/config/config.xsd
- ``  
- 
-On windows systems you may need to include the java interpreter
+To execute the program the following command can be issued:
 
 ``
 java -jar rearobotproblem-1.0.jar  -s path/to/schema/robottoy.xsd -c /path/to/config/config.xsd
 ``
 
+On UNIX systems a executable stub can be generated using the command:
+
+```
+gradle build
+gradle createExe
+```
+
+This feature should be considered highly experimental as it relies on the JAVA_HOME variable being set.
+
+However if it works then the following is possible:
+
+``
+rearobotproblem -s path/to/schema/robottoy.xsd -c /path/to/config/config.xsd
+ ``  
+ 
 The default configuration and XSD can be found in:
 
 XSD: [ROOT_DIR]/generated/robottoy.xsd
 XML: [ROOT_DIR]/config/robottoyrc.xml
 
+To build the project the following command can be used:
+
+``gradle build``
+
 Some important concepts to the program are that:
 
 * A RobotClient (any class that conforms to the RobotClient interface) acts as a interface for the end user. Each client
 is executed in its own thread.  All clients interact with the same _RobotService_. By default there is one client which 
-is the command line clients. Clients can be added by modifying the configuration file.
+is the command line client. Clients can be added by modifying the configuration file.
 
-* A action is the base interface for anything that can have a affect on a _PhysicalObject_ or the _World_. The physical objects that 
-are included by default is the _ToyRobot_ object. Physical objects are generated using a factory class, which in itself
-needs a command such as _PLACE_ to execute it.
+* A action is a command that is issued via the _RobotClient_ to the _RobotService_, actions can communicate back to 
+the client via the _RobotResponder_
 
-Actions are broken into three groupsm, these are:
+Actions are broken into three groups, these are:
 
 ** __LocalActions__ : Actions that only affect the perspective of the PhysicalObject and have no effect on the World.
 ** __GlobalActions__ : Actions that change the worlds perspective of the PhysicalObject
 ** __WorldActions__ : Actions which change the world, such as adding a new Physical object.
 
-Actions can be added dynamically by adding them to the configuration file, however they must comply with there
-corresponding interface.
+Actions can be added dynamically by configuration.
 
 __CAVEATS__
 
@@ -53,6 +65,14 @@ As per specifications there is currently no way to
 * quit the application, 
 * remove a robot from the table
 * display the table top.
+
+
+In terms of the design the following considerations have been made:
+
+1. All instances that belong to a object are created via a factory;
+2. Services are created by a initialiser;
+
+
 
 config.mapppers
 ===============
