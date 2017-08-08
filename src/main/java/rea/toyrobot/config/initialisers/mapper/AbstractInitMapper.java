@@ -3,7 +3,7 @@ package rea.toyrobot.config.initialisers.mapper;
 import rea.toyrobot.exceptions.RobotInitialisationException;
 
 public abstract class AbstractInitMapper<I> {
-    public abstract void configure(I instance);
+    public abstract void configure(I instance) throws RobotInitialisationException;
 
     public I map(String clazz) throws RobotInitialisationException {
         I object;
