@@ -42,7 +42,7 @@ public class TableTopWorld implements World {
         if (x < 0 || y < 0) {
             rv = false;
         }
-        if (x < width && y < length && !coordinates[x][y]) {
+        else if (x < width && y < length && !coordinates[x][y]) {
             rv = true;
         }
 

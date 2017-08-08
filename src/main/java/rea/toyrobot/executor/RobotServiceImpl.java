@@ -38,7 +38,7 @@ public class RobotServiceImpl implements RobotService {
         if (robotResponder.hasResponse() && worldInitiator.getPhysicalObject() != null) {
             physicalObject = worldInitiator.getPhysicalObject();
         }
-        else {
+        else if (!robotResponder.hasResponse()) {
             globalInitiator.setPhysicalObject(physicalObject);
             globalInitiator.setRobotResponder(robotResponder);
             globalInitiator.execute(cmd);

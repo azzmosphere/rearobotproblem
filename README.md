@@ -20,7 +20,12 @@ On windows systems you may need to include the java interpreter
 java -jar rearobotproblem-1.0.jar  -s path/to/schema/robottoy.xsd -c /path/to/config/config.xsd
 ``
 
-Some important concepts to the progam are that:
+The default configuration and XSD can be found in:
+
+XSD: [ROOT_DIR]/generated/robottoy.xsd
+XML: [ROOT_DIR]/config/robottoyrc.xml
+
+Some important concepts to the program are that:
 
 * A RobotClient (any class that conforms to the RobotClient interface) acts as a interface for the end user. Each client
 is executed in its own thread.  All clients interact with the same _RobotService_. By default there is one client which 
@@ -38,6 +43,16 @@ Actions are broken into three groupsm, these are:
 
 Actions can be added dynamically by adding them to the configuration file, however they must comply with there
 corresponding interface.
+
+__CAVEATS__
+
+As per requirements, there are no other obstacles on the table when the program starts, however two PLACE commands within
+the same session will result in two robots being created which is considered a obstacle.
+
+As per specifications there is currently no way to 
+* quit the application, 
+* remove a robot from the table
+* display the table top.
 
 config.mapppers
 ===============

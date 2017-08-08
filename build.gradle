@@ -73,3 +73,10 @@ task jaxb() {
     }
 }
 
+task createExe(type: Exec) {
+    //(new File('build/libs/rearobotproblem')).text = file('src/main/stub.sh').getText() + file(jar.archivePath).getText()
+    commandLine 'rm', 'build/libs/rearobotproblem'
+    commandLine 'cat', 'src/main/stub.sh', jar.archivePath, '> build/libs/rearobotproblem'
+    commandLine 'chmod', '+x', 'build/libs/rearobotproblem'
+}
+
