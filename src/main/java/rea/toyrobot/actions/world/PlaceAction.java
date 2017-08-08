@@ -30,16 +30,17 @@ public class PlaceAction extends AbstractAction implements WorldAction {
             int x = Integer.parseInt(args[0]), y = Integer.parseInt(args[1]);
             getResponder().setHasResponse(true);
 
-            if (physicalObject != null && physicalObject.getPerspective().getCompass().findCardinalDirection(args[2]) == null) {
-                throw new RobotException("could not find compass cardinal direction");
-            }
-            else if (world.canMoveTo(x, y)) {
+            if (world.canMoveTo(x, y)) {
                 physicalObject = physicalObjectFactory.create();
                 physicalObject.getPerspective().setXPos(x);
                 physicalObject.getPerspective().setYPos(y);
                 physicalObject.getPerspective().setCompass(
                     physicalObject.getPerspective().getCompass().findCardinalDirection(args[2])
                 );
+
+                if (physicalObject.getPerspective().getCompass() == null) {
+                    throw new RobotInitialisationException("could not find cardinal compass direction");
+                }
 
                 world.setObject(x, y);
             }
