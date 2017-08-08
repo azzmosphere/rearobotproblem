@@ -5,9 +5,9 @@ package rea.toyrobot.actions.world;
  */
 
 import rea.toyrobot.actions.AbstractAction;
+import rea.toyrobot.exceptions.RobotDuplicatedLocationException;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.exceptions.RobotOutOfBoundsException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
 import rea.toyrobot.worlds.World;
@@ -45,7 +45,7 @@ public class PlaceAction extends AbstractAction implements WorldAction {
                 world.setObject(x, y);
             }
             else {
-                throw new RobotOutOfBoundsException("out of bounds exception Unable to move to " + x + ":" + y);
+                throw new RobotDuplicatedLocationException("duplicated robot Unable to place robot at " + x + ":" + y);
             }
         }
         catch (RobotException e) {

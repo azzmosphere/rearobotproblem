@@ -1,5 +1,6 @@
 package rea.toyrobot.executor;
 
+import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.responder.RobotResponder;
 
 public interface Initiator<A> {
@@ -14,7 +15,7 @@ public interface Initiator<A> {
      *
      * @param cmd
      */
-    void execute(String[] cmd);
+    void execute(String[] cmd) throws RobotException;
 
     /**
      * used to check whether this command can be performed by the action.

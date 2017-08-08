@@ -6,6 +6,7 @@ package rea.toyrobot.actions.physicalobjects;
 
 import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
+import rea.toyrobot.exceptions.RobotOutOfBoundsException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.worlds.World;
 
@@ -92,7 +93,9 @@ public class MoveAction extends AbstractAction implements GlobalAction {
 
     @Override
     public void runAction() throws RobotException {
-        int x = physicalObject.getPerspective().getXPos(), y = physicalObject.getPerspective().getYpos();
+        int x = physicalObject.getPerspective().getXPos(), y = physicalObject.getPerspective().getYpos(),
+                origX= physicalObject.getPerspective().getXPos(), origY = physicalObject.getPerspective().getYpos();;
+        getResponder().setHasResponse(true);
 
         for (MoveEnum moveEnum : MoveEnum.values()) {
             if (moveEnum.toString().equals(physicalObject.getPerspective().getCompass().getCardinalDirection())) {
@@ -103,14 +106,15 @@ public class MoveAction extends AbstractAction implements GlobalAction {
         }
 
         if (world.canMoveTo(x, y)) {
-            world.relocateObject(physicalObject.getPerspective().getXPos(), physicalObject.getPerspective().getYpos(), x , y);
             physicalObject.getPerspective().setXPos(x);
             physicalObject.getPerspective().setYPos(y);
+            world.relocateObject(origX, origY, x , y);
         }
         else {
-            getResponder().setResponse("WARN: Unable to move to " + x + ":" + y + " there is all ready a object there");
+            // Reset the perspective
+            throw new RobotOutOfBoundsException("Unable to move to " + x + ":" + y + " there is all ready a object there");
         }
-        getResponder().setHasResponse(true);
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package rea.toyrobot.executor;
 
+import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.responder.RobotResponder;
 
@@ -50,7 +51,7 @@ public class RobotServiceImpl implements RobotService {
                 }
             }
         }
-        catch (Exception e) {
+        catch (RobotException e) {
             robotResponder.setHasResponse(true);
             robotResponder.setResponse("ERROR: could not perform command " + e.getMessage());
         }
