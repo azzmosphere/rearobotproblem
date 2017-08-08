@@ -8,6 +8,37 @@ a factory that complies to a interface and is dynamically loaded.
 The idea is that the program can be extended with no code changes, new code
 can be added, or minimal code changes.
 
+to run the program the following command is used:
+
+``
+rearobotproblem -s path/to/schema/robottoy.xsd -c /path/to/config/config.xsd
+ ``  
+ 
+On windows systems you may need to include the java interpreter
+
+``
+java -jar rearobotproblem-1.0.jar  -s path/to/schema/robottoy.xsd -c /path/to/config/config.xsd
+``
+
+Some important concepts to the progam are that:
+
+* A RobotClient (any class that conforms to the RobotClient interface) acts as a interface for the end user. Each client
+is executed in its own thread.  All clients interact with the same _RobotService_. By default there is one client which 
+is the command line clients. Clients can be added by modifying the configuration file.
+
+* A action is the base interface for anything that can have a affect on a _PhysicalObject_ or the _World_. The physical objects that 
+are included by default is the _ToyRobot_ object. Physical objects are generated using a factory class, which in itself
+needs a command such as _PLACE_ to execute it.
+
+Actions are broken into three groupsm, these are:
+
+** __LocalActions__ : Actions that only affect the perspective of the PhysicalObject and have no effect on the World.
+** __GlobalActions__ : Actions that change the worlds perspective of the PhysicalObject
+** __WorldActions__ : Actions which change the world, such as adding a new Physical object.
+
+Actions can be added dynamically by adding them to the configuration file, however they must comply with there
+corresponding interface.
+
 config.mapppers
 ===============
 
