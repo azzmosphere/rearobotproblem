@@ -94,7 +94,7 @@ public class MoveAction extends AbstractAction implements GlobalAction {
     @Override
     public void runAction() throws RobotException {
         int x = physicalObject.getPerspective().getXPos(), y = physicalObject.getPerspective().getYpos(),
-                origX= physicalObject.getPerspective().getXPos(), origY = physicalObject.getPerspective().getYpos();;
+                origX = physicalObject.getPerspective().getXPos(), origY = physicalObject.getPerspective().getYpos();;
         getResponder().setHasResponse(true);
 
         for (MoveEnum moveEnum : MoveEnum.values()) {
