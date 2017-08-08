@@ -73,4 +73,12 @@ public class TestPlaceAction {
         assertThat(placeAction.canPerformAction(new String[] {"place", "0,0,north"}), is(true));
         assertThat(placeAction.canPerformAction(new String[] {"LEFT"}), is(false));
     }
+
+    @Test(expected = rea.toyrobot.exceptions.RobotException.class)
+    public void testCanPerformActionInvalid() throws Exception {
+        when(perspectiveCompass.findCardinalDirection("0")).thenReturn(null);
+        placeAction.setArgsIn(new String[] {"place", "0,0,0,0,0"});
+        placeAction.runAction();
+    }
+
 }

@@ -7,6 +7,7 @@ package rea.toyrobot.actions.world;
 import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.exceptions.RobotInitialisationException;
+import rea.toyrobot.exceptions.RobotOutOfBoundsException;
 import rea.toyrobot.physicalobjects.PhysicalObject;
 import rea.toyrobot.physicalobjects.PhysicalObjectFactory;
 import rea.toyrobot.worlds.World;
@@ -30,20 +31,20 @@ public class PlaceAction extends AbstractAction implements WorldAction {
             getResponder().setHasResponse(true);
 
             if (physicalObject != null && physicalObject.getPerspective().getCompass().findCardinalDirection(args[2]) == null) {
-                getResponder().setResponse("WARN: unsupported compass direction");
+                throw new RobotException("could not find compass cardinal direction");
             }
             else if (world.canMoveTo(x, y)) {
-                world.setObject(x, y);
-
                 physicalObject = physicalObjectFactory.create();
                 physicalObject.getPerspective().setXPos(x);
                 physicalObject.getPerspective().setYPos(y);
                 physicalObject.getPerspective().setCompass(
                     physicalObject.getPerspective().getCompass().findCardinalDirection(args[2])
                 );
+
+                world.setObject(x, y);
             }
             else {
-                getResponder().setResponse("WARN: Unable to move to " + x + ":" + y);
+                throw new RobotOutOfBoundsException("out of bounds exception Unable to move to " + x + ":" + y);
             }
         }
         catch (RobotException e) {

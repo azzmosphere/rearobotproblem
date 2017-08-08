@@ -31,23 +31,28 @@ public class RobotServiceImpl implements RobotService {
 
     @Override
     public synchronized  void execute(String[] cmd) {
-        worldInitiator.setRobotResponder(robotResponder);
-        worldInitiator.setPhysicalObject(physicalObject);
-        worldInitiator.execute(cmd);
+        try {
+            worldInitiator.setRobotResponder(robotResponder);
+            worldInitiator.setPhysicalObject(physicalObject);
+            worldInitiator.execute(cmd);
 
-        if (robotResponder.hasResponse() && worldInitiator.getPhysicalObject() != null) {
-            physicalObject = worldInitiator.getPhysicalObject();
-        }
-        else if (!robotResponder.hasResponse()) {
-            globalInitiator.setPhysicalObject(physicalObject);
-            globalInitiator.setRobotResponder(robotResponder);
-            globalInitiator.execute(cmd);
+            if (robotResponder.hasResponse() && worldInitiator.getPhysicalObject() != null) {
+                physicalObject = worldInitiator.getPhysicalObject();
+            } else if (!robotResponder.hasResponse()) {
+                globalInitiator.setPhysicalObject(physicalObject);
+                globalInitiator.setRobotResponder(robotResponder);
+                globalInitiator.execute(cmd);
 
-            if (!globalInitiator.getRobotResponder().hasResponse()) {
-                localInitiator.setRobotResponder(robotResponder);
-                localInitiator.setCurrentObject(physicalObject);
-                localInitiator.execute(cmd);
+                if (!globalInitiator.getRobotResponder().hasResponse()) {
+                    localInitiator.setRobotResponder(robotResponder);
+                    localInitiator.setCurrentObject(physicalObject);
+                    localInitiator.execute(cmd);
+                }
             }
+        }
+        catch (Exception e) {
+            robotResponder.setHasResponse(true);
+            robotResponder.setResponse("ERROR: could not perform command " + e.getMessage());
         }
     }
 
