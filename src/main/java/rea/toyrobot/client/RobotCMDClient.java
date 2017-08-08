@@ -1,5 +1,9 @@
 package rea.toyrobot.client;
 
+/**
+ * provides a command line interface to the robot service
+ */
+
 import rea.toyrobot.executor.RobotService;
 import rea.toyrobot.responder.ReaRobotResponder;
 import rea.toyrobot.responder.RobotResponder;
@@ -11,11 +15,19 @@ import java.io.Reader;
 public class RobotCMDClient implements RobotClient {
     private RobotService robotService;
 
+    /**
+     * sets the robot service
+     *
+     * @param robotService
+     */
     @Override
     public void setRobotService(RobotService robotService) {
         this.robotService = robotService;
     }
 
+    /**
+     * executes the client, this is ran within the thread.
+     */
     @Override
     public void run() {
         Reader inp = new InputStreamReader(System.in);

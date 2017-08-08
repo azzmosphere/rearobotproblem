@@ -1,5 +1,9 @@
 package rea.toyrobot.perspective;
 
+/**
+ * implementation of the robot perspective.
+ */
+
 public class RobotPerspective implements Perspective {
     private int x, y;
     PerspectiveCompass compass;

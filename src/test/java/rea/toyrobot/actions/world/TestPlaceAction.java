@@ -55,4 +55,22 @@ public class TestPlaceAction {
         assertThat(object, is(robot));
     }
 
+    @Test
+    public void testRunActionLowerCase() throws Exception {
+        doNothing().when(tableTop).setObject(0, 0);
+        doNothing().when(perspective).setXPos(0);
+        doNothing().when(perspective).setYPos(0);
+        when(tableTop.canMoveTo(0, 0)).thenReturn(true);
+
+        placeAction.setArgsIn(new String[] {"place", "0,0,north"});
+        PhysicalObject object = placeAction.runAction();
+
+        assertThat(object, is(robot));
+    }
+
+    @Test
+    public void testCanPerformActionLowerCase() {
+        assertThat(placeAction.canPerformAction(new String[] {"place", "0,0,north"}), is(true));
+        assertThat(placeAction.canPerformAction(new String[] {"LEFT"}), is(false));
+    }
 }

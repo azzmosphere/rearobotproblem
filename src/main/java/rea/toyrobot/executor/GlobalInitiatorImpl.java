@@ -1,5 +1,10 @@
 package rea.toyrobot.executor;
 
+/**
+ * implementation of the global initiator.
+ *
+ */
+
 import rea.toyrobot.actions.physicalobjects.GlobalAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;

@@ -1,5 +1,9 @@
 package rea.toyrobot.actions.world;
 
+/**
+ * modifies the worlds perspective.
+ */
+
 import rea.toyrobot.actions.Action;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObjectFactory;

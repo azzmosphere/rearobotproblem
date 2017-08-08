@@ -1,11 +1,30 @@
 package rea.toyrobot.config.initialisers.mapper;
 
+/**
+ * abstract class for initialisation
+ */
+
 import rea.toyrobot.exceptions.RobotInitialisationException;
 
 public abstract class AbstractInitMapper<I> {
+
+    /**
+     *
+     * abstract configure() method that is called as part of the mapping routine.
+     *
+     * @param instance
+     * @throws RobotInitialisationException
+     */
     public abstract void configure(I instance) throws RobotInitialisationException;
 
-    public I map(String clazz) throws RobotInitialisationException {
+    /**
+     * creates a instance of the object.
+     *
+     * @param clazz
+     * @return
+     * @throws RobotInitialisationException
+     */
+    public final I map(String clazz) throws RobotInitialisationException {
         I object;
 
         try {

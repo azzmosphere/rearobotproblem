@@ -1,5 +1,9 @@
 package rea.toyrobot.executor;
 
+/**
+ * implementation of the local initiator.
+ */
+
 import rea.toyrobot.actions.physicalobjects.LocalAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;

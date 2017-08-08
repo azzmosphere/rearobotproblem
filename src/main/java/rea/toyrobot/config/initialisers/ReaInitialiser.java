@@ -32,6 +32,11 @@ public class ReaInitialiser implements Initialiser {
     private LocalInitiator localInitiator;
     private List<RobotClient> clients;
 
+    /**
+     * peforms the configuration of the factories, initiators and clients
+     *
+     * @throws RobotInitialisationException
+     */
     @Override
     public void initialise() throws RobotInitialisationException {
         reaUnMarshaller.readConfigProperties();
@@ -56,26 +61,52 @@ public class ReaInitialiser implements Initialiser {
         }
     }
 
+    /**
+     *
+     * returns a list of clients
+     *
+     * @return
+     */
     @Override
     public List<RobotClient> getClients() {
         return clients;
     }
 
+    /**
+     * sets the un marshaller
+     *
+     * @param reaUnMarshaller
+     */
     @Override
     public void setReaUnMarshaller(ReaUnMarshaller reaUnMarshaller) {
         this.reaUnMarshaller = reaUnMarshaller;
     }
 
+    /**
+     * return the world initiator
+     *
+     * @return
+     */
     @Override
     public WorldInitiator getWorldInitiator() {
         return worldInitiator;
     }
 
+    /**
+     * return the global initiator
+     *
+     * @return
+     */
     @Override
     public GlobalInitiator getGlobalInitator() {
         return globalInitiator;
     }
 
+    /**
+     * return the local initiator
+     *
+     * @return
+     */
     @Override
     public LocalInitiator getLocalInitiator() {
         return localInitiator;

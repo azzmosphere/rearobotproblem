@@ -1,7 +1,7 @@
 package rea.toyrobot.actions.physicalobjects;
 
 /**
- * moves the object one unit.
+ * moves the object one unit in the direction that it is facing.
  */
 
 import rea.toyrobot.actions.AbstractAction;

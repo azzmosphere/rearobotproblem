@@ -1,8 +1,7 @@
 package rea.toyrobot.actions.world;
 
 /**
- * The PlaceAction places a physical object in the world and adjusts that
- * objects perspective to match its position in the world.
+ * attach a physical object to the world.
  */
 
 import rea.toyrobot.actions.AbstractAction;

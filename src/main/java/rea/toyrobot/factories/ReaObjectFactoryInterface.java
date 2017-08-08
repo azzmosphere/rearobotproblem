@@ -10,5 +10,11 @@ import rea.toyrobot.exceptions.RobotInitialisationException;
  */
 
 public interface ReaObjectFactoryInterface<I> {
+    /**
+     * returns a generic instance of the object.
+     *
+     * @return
+     * @throws RobotInitialisationException
+     */
     I create() throws RobotInitialisationException;
 }

@@ -30,5 +30,11 @@ import rea.toyrobot.executor.RobotService;
 
 public interface RobotClient extends  Runnable {
 
+    /**
+     *
+     * set the robot service.
+     *
+     * @param robotService
+     */
     void setRobotService(RobotService robotService);
 }

@@ -1,5 +1,9 @@
 package rea.toyrobot.actions.physicalobjects;
 
+/**
+ * describe the physical objects perspective of the world.
+ */
+
 import rea.toyrobot.actions.AbstractAction;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;

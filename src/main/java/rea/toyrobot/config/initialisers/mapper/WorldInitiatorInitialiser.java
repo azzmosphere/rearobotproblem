@@ -1,5 +1,9 @@
 package rea.toyrobot.config.initialisers.mapper;
 
+/**
+ * initialise the world initiator
+ */
+
 import rea.toyrobot.config.initialisers.mapper.world.WorldActionInialiser;
 import rea.toyrobot.config.mapper.jabx.ToyRobot;
 import rea.toyrobot.exceptions.RobotInitialisationException;
@@ -12,6 +16,13 @@ public class WorldInitiatorInitialiser extends AbstractInitMapper<WorldInitiator
     private PhysicalObjectFactory physicalObjectFactory;
     private ToyRobot config;
 
+    /**
+     *
+     * perform any needed configuration
+     *
+     * @param instance
+     * @throws RobotInitialisationException
+     */
     @Override
     public void configure(WorldInitiator instance) throws RobotInitialisationException {
         WorldActionInialiser worldActionInialiser = new WorldActionInialiser(physicalObjectFactory, world);
@@ -22,6 +33,14 @@ public class WorldInitiatorInitialiser extends AbstractInitMapper<WorldInitiator
         }
     }
 
+    /**
+     *
+     * class constructor
+     *
+     * @param config
+     * @param world
+     * @param physicalObjectFactory
+     */
     public WorldInitiatorInitialiser(ToyRobot config, World world, PhysicalObjectFactory physicalObjectFactory) {
         this.config = config;
         this.world = world;

@@ -15,10 +15,20 @@ public class RobotClientService {
     private List<RobotClient> clients;
     private RobotService robotService;
 
+    /**
+     * sets a list of clients
+     *
+     * @param clients
+     */
     public void setClients(List<RobotClient> clients) {
         this.clients = clients;
     }
 
+    /**
+     * sets the robot service
+     *
+     * @param robotService
+     */
     public void setRobotService(RobotService robotService) {
         this.robotService = robotService;
     }

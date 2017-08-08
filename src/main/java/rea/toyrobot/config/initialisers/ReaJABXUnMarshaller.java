@@ -1,5 +1,9 @@
 package rea.toyrobot.config.initialisers;
 
+/**
+ * reads a XML file and converts it configuration objects.
+ */
+
 import org.xml.sax.SAXException;
 import rea.toyrobot.config.mapper.jabx.ToyRobot;
 import rea.toyrobot.exceptions.RobotInitialisationException;
@@ -18,11 +22,24 @@ public class ReaJABXUnMarshaller implements ReaUnMarshaller {
     private String fxml;
     private ToyRobot toyRobotConfig;
 
+    /**
+     *
+     * class constructor
+     *
+     * @param schema
+     * @param xml
+     */
     public ReaJABXUnMarshaller(String schema, String xml) {
         this.fschema = schema;
         this.fxml = xml;
     }
 
+    /**
+     *
+     * reads the configuration.
+     *
+     * @throws RobotInitialisationException
+     */
     @Override
     public void readConfigProperties() throws RobotInitialisationException {
 
@@ -54,6 +71,12 @@ public class ReaJABXUnMarshaller implements ReaUnMarshaller {
         }
     }
 
+    /**
+     *
+     * returns configuration as a object
+     *
+     * @return
+     */
     @Override
     public ToyRobot getToyRobotConfig() {
         return toyRobotConfig;

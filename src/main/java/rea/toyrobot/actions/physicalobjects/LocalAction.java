@@ -1,5 +1,10 @@
 package rea.toyrobot.actions.physicalobjects;
 
+/**
+ * responsible for changing a physical objects perspective
+ * of the world
+ */
+
 import rea.toyrobot.actions.Action;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.physicalobjects.PhysicalObject;

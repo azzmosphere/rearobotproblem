@@ -3,7 +3,7 @@ package rea.toyrobot.executor;
 import rea.toyrobot.responder.RobotResponder;
 
 public interface Initiator<A> {
-        /**
+    /**
      * Adds a specific action that can be added to the execution framework.
      * @param action
      */
@@ -16,9 +16,25 @@ public interface Initiator<A> {
      */
     void execute(String[] cmd);
 
+    /**
+     * used to check whether this command can be performed by the action.
+     *
+     * @param cmd
+     * @return
+     */
     boolean verifyAction(String[] cmd);
 
+    /**
+     * set the responder
+     *
+     * @param robotResponder
+     */
     void setRobotResponder(RobotResponder robotResponder);
 
+    /**
+     * returns the robot responder
+     *
+     * @return
+     */
     RobotResponder getRobotResponder();
 }

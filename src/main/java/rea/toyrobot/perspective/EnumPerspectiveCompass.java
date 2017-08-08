@@ -1,5 +1,10 @@
 package rea.toyrobot.perspective;
 
+/**
+ * implementation of perspective compass that uses a enum to determine
+ * the cardinal points of the compass.
+ */
+
 public enum  EnumPerspectiveCompass implements PerspectiveCompass {
     NORTH("EAST", "WEST", "NORTH"),
     EAST("SOUTH", "NORTH", "EAST"),
@@ -27,7 +32,7 @@ public enum  EnumPerspectiveCompass implements PerspectiveCompass {
     public PerspectiveCompass findCardinalDirection(String cardinalDirection) {
         PerspectiveCompass perspectiveCompass = null;
         for (EnumPerspectiveCompass perspective : EnumPerspectiveCompass.values()) {
-            if (perspective.id.equals(cardinalDirection)) {
+            if (perspective.id.equalsIgnoreCase(cardinalDirection)) {
                 perspectiveCompass = perspective;
                 break;
             }
