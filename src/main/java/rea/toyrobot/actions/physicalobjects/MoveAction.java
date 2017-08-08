@@ -112,7 +112,7 @@ public class MoveAction extends AbstractAction implements GlobalAction {
         }
         else {
             // Reset the perspective
-            throw new RobotOutOfBoundsException("Unable to move to " + x + ":" + y + " there is all ready a object there");
+            throw new RobotOutOfBoundsException("Unable to move to " + x + ":" + y + " the location may be out of bounds");
         }
 
     }
