@@ -5,7 +5,7 @@ import rea.toyrobot.config.mapper.jabx.ToyRobot;
 import rea.toyrobot.exceptions.RobotInitialisationException;
 import rea.toyrobot.executor.LocalInitiator;
 
-public class LocalInitiatorInitialiser extends AbstractInitMapper<LocalInitiator>{
+public class LocalInitiatorInitialiser extends AbstractInitMapper<LocalInitiator> {
     ToyRobot config;
 
     @Override

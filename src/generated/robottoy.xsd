@@ -45,7 +45,7 @@
                             <xs:element name="action" maxOccurs="unbounded" >
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="clazz" />
+                                        <xs:element type="xs:string" name="clazz" />
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
@@ -60,7 +60,7 @@
                             <xs:element name="action" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="clazz" />
+                                        <xs:element type="xs:string" name="clazz" />
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
@@ -89,7 +89,7 @@
                             <xs:element name="client" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="clazz" />
+                                        <xs:element type="xs:string" name="clazz" />
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
