@@ -2,8 +2,10 @@ TOY ROBOT APPLICATION
 =====================
 
 The Toy Robot application is designed to be as flexible as possible.  With 
-that in mind aside from the initialiser all concrete classes are produced by
-a factory that complies to a interface and is dynamically loaded.
+that in mind aside from the initialiser and core all concrete classes are 
+produced by either the initialiser or a factory that complies to a interface 
+and is dynamically loaded.  The only representation is the interface, the concrete
+implementation is derived from the robottoyrc.xsd file.
 
 The idea is that the program can be extended minimal code changes.
 
