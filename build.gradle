@@ -41,6 +41,11 @@ checkstyleMain {
 }
 
 dependencies {
+    jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.7'
+    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-ant:0.6.5"
+    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics:0.6.4"
+    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-annotate:0.6.4"
+
     // https://mvnrepository.com/artifact/args4j/args4j
     compile group: 'args4j', name: 'args4j', version: '2.33'
 
