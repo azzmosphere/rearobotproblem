@@ -29,7 +29,7 @@ public class RobotCMDClient implements RobotClient {
      * executes the client, this is ran within the thread.
      */
     @Override
-    public final void run() {
+    public final Boolean call() {
         Reader inp = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(inp);
         boolean isExit = false;
@@ -52,7 +52,9 @@ public class RobotCMDClient implements RobotClient {
         }
         catch (Exception e) {
             System.out.println("FATAL ERROR: - " + e.getMessage());
-            return;
+            return false;
         }
+
+        return true;
     }
 }

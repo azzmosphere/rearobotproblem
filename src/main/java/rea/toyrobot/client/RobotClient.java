@@ -2,6 +2,8 @@ package rea.toyrobot.client;
 
 import rea.toyrobot.executor.RobotService;
 
+import java.util.concurrent.Callable;
+
 /**
  * A client provides a means to communicate with the RobotService.
  * It should send a command to the service in the form of:
@@ -28,7 +30,8 @@ import rea.toyrobot.executor.RobotService;
  *  providing details back to the end user.
  */
 
-public interface RobotClient extends  Runnable {
+//public interface RobotClient extends  Runnable {
+public interface RobotClient extends Callable<Boolean> {
 
     /**
      *

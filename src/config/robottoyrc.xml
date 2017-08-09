@@ -65,6 +65,9 @@ of existing code.
         <client>
             <clazz>rea.toyrobot.client.RobotCMDClient</clazz>
         </client>
+        <client>
+            <clazz>rea.toyrobot.client.RobotFileClient</clazz>
+        </client>
     </ReaRobotClients>
 
 </toyRobot>

@@ -41,6 +41,23 @@ To build the project the following command can be used:
 
 ``gradle build``
 
+**PROGRAM** **USAGE**
+
+By default two clients are implemented,
+
+1. Command Line Interface Client
+
+2. File Client
+
+To use the file interface set the environmental variable _ROBOTCMDS_
+
+```
+export ROBOTCMD=`pwd`/src/test/data/sample.1.txt
+java -jar ./build/libs/rearobotproblem-1.0.jar -s ./src/generated/robottoy.xsd -c ./src/config/robottoyrc.xml
+```
+
+**IMPORTANT** **CONCEPTS**
+
 Some important concepts to the program are that:
 
 * A RobotClient (any class that conforms to the RobotClient interface) acts as a interface for the end user. Each client

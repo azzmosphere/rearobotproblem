@@ -7,12 +7,14 @@ package rea.toyrobot.client;
 import rea.toyrobot.exceptions.RobotException;
 import rea.toyrobot.executor.RobotService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class RobotClientService {
-    private List<RobotClient> clients;
+    private Collection<RobotClient> clients;
     private RobotService robotService;
 
     /**
@@ -20,7 +22,7 @@ public class RobotClientService {
      *
      * @param clients
      */
-    public void setClients(List<RobotClient> clients) {
+    public void setClients(Collection<RobotClient> clients) {
         this.clients = clients;
     }
 
@@ -39,19 +41,18 @@ public class RobotClientService {
      * @throws RobotException
      */
     public final void run() throws RobotException {
-        ExecutorService[] executorServices = new ExecutorService[clients.size()];
         try {
-            int i = 0;
+            ExecutorService executorService = Executors.newFixedThreadPool(clients.size());
             for (RobotClient client : clients) {
                 client.setRobotService(robotService);
-                ExecutorService executorService = Executors.newSingleThreadExecutor();
-                executorService.execute(client);
-                executorServices[i++] = executorService;
-
             }
 
-            for (ExecutorService executorService : executorServices) {
-                executorService.shutdown();
+            List<Future<Boolean>> futures =  executorService.invokeAll(clients);
+
+            for (Future<Boolean> f : futures) {
+                if (!f.isDone()) {
+                    System.out.println("at least one client has uncleanly");
+                }
             }
         }
         catch (Exception e) {
