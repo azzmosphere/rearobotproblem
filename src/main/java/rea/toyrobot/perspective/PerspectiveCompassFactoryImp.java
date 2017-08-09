@@ -1,13 +1,12 @@
 package rea.toyrobot.perspective;
 
 import rea.toyrobot.exceptions.RobotInitialisationException;
-import rea.toyrobot.factories.ReaObjectFactory;
 
 /**
  * implementation of EnumPerspectiveCompass factory.
  */
 
-public class PerspectiveCompassFactoryImp extends ReaObjectFactory<PerspectiveCompass, EnumPerspectiveCompass> implements PerspectiveCompassFactory {
+public class PerspectiveCompassFactoryImp implements PerspectiveCompassFactory {
     private String initialPosition;
 
     @Override
@@ -18,15 +17,6 @@ public class PerspectiveCompassFactoryImp extends ReaObjectFactory<PerspectiveCo
     @Override
     public String getInitialPosition() {
         return initialPosition;
-    }
-
-    public PerspectiveCompassFactoryImp() {
-        super(EnumPerspectiveCompass.class);
-    }
-
-    @Override
-    protected EnumPerspectiveCompass init(EnumPerspectiveCompass object) throws RobotInitialisationException {
-        return object;
     }
 
     @Override

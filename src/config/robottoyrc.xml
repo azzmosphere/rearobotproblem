@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!--
+This is the Toy Robot configuration file. It provides a way to change any
+action, client, factory or initiator.
+
+You can also add actions and clients from this file with alteration
+of existing code.
+
+-->
 <toyRobot>
     <!-- The world that the application should use -->
     <world>

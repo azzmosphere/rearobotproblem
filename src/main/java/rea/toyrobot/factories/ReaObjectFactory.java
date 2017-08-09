@@ -37,7 +37,7 @@ public abstract class ReaObjectFactory<I, C extends I> {
      *
      * @return a blank instance of a given object.
      */
-    public I create() throws RobotInitialisationException {
+    public final I create() throws RobotInitialisationException {
 
         try {
             instance = init(concreteClass.newInstance());

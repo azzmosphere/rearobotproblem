@@ -38,7 +38,7 @@ public class RobotClientService {
      *
      * @throws RobotException
      */
-    public void run() throws RobotException {
+    public final void run() throws RobotException {
         ExecutorService[] executorServices = new ExecutorService[clients.size()];
         try {
             int i = 0;

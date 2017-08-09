@@ -38,7 +38,7 @@ public class ReaInitialiser implements Initialiser {
      * @throws RobotInitialisationException
      */
     @Override
-    public void initialise() throws RobotInitialisationException {
+    public final void initialise() throws RobotInitialisationException {
         reaUnMarshaller.readConfigProperties();
         ToyRobot config = reaUnMarshaller.getToyRobotConfig();
 
@@ -57,7 +57,7 @@ public class ReaInitialiser implements Initialiser {
         clients = new ArrayList<>();
         ClientInitialiser clientInitialiser = new ClientInitialiser();
         for (ToyRobot.ReaRobotClients.Client client : config.getReaRobotClients().getClient()) {
-            clients.add(clientInitialiser.map((String) client.getClazz()));
+            clients.add(clientInitialiser.map(client.getClazz()));
         }
     }
 

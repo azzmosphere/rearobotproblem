@@ -29,7 +29,7 @@ public class RobotCMDClient implements RobotClient {
      * executes the client, this is ran within the thread.
      */
     @Override
-    public void run() {
+    public final void run() {
         Reader inp = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(inp);
         boolean isExit = false;

@@ -41,7 +41,7 @@ public class ReaJABXUnMarshaller implements ReaUnMarshaller {
      * @throws RobotInitialisationException
      */
     @Override
-    public void readConfigProperties() throws RobotInitialisationException {
+    public final void readConfigProperties() throws RobotInitialisationException {
 
         try {
             if (fschema == null || fxml == null) {
