@@ -65,9 +65,10 @@ of existing code.
         <client>
             <clazz>rea.toyrobot.client.RobotCMDClient</clazz>
         </client>
-        <client>
+        <!-- by default the file client is disabled. To enable the client remove the commends beneath -->
+        <!-- <client>
             <clazz>rea.toyrobot.client.RobotFileClient</clazz>
-        </client>
+        </client> -->
     </ReaRobotClients>
 
 </toyRobot>

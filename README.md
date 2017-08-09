@@ -2,14 +2,14 @@ TOY ROBOT APPLICATION
 =====================
 
 The Toy Robot application is designed to be as flexible as possible.  With 
-that in mind aside from the initialiser and core all concrete classes are 
+that in mind aside from the initialiser and core, all concrete classes are 
 produced by either the initialiser or a factory that complies to a interface 
-and is dynamically loaded.  The only representation is the interface, the concrete
-implementation is derived from the robottoyrc.xsd file.
+and is dynamically loaded.  The only representation of the class available to 
+ consumer classes is the interface, the concrete implementation is derived from 
+ the robottoyrc.xsd file. This way the program can remain loosely coupled and
+ flexible.
 
-The idea is that the program can be extended minimal code changes.
-
-to run the program the following command is used:
+The idea is that the program can be extended minimal code changes and comply with SOLID standards.
 
 To execute the program the following command can be issued:
 
@@ -43,18 +43,57 @@ To build the project the following command can be used:
 
 **PROGRAM** **USAGE**
 
-By default two clients are implemented,
+By default two clients are implemented, the command line client and the file client. The file client is disabled by
+default but can be enabled through modification of the configuration.
+
 
 1. Command Line Interface Client
 
+The command line client creates a interface using standard input and output.  Commands can be entered
+using the keyboard and any output will be printed to standard output.
+
+```
+export ROBOTCMDS=`pwd`/src/test/data/sample.1.txt
+java -jar ./build/libs/rearobotproblem-1.0.jar -s ./src/generated/robottoy.xsd -c ./src/config/robottoyrc.xml
+```
+
+commands can be directly inputed to the Robot Service via standard input.
+
 2. File Client
+
+By default the File Client is disabled, to enable it, modify the XML configuration at the section that reads:
+
+```
+    <ReaRobotClients>
+        <client>
+            <clazz>rea.toyrobot.client.RobotCMDClient</clazz>
+        </client>
+        <client>
+            <clazz>rea.toyrobot.client.RobotFileClient</clazz>
+        </client>
+    </ReaRobotClients>
+```
+and ensure that the client string _rea.toyrobot.client.RobotFileClient_ is enabled.
 
 To use the file interface set the environmental variable _ROBOTCMDS_
 
 ```
-export ROBOTCMD=`pwd`/src/test/data/sample.1.txt
+export ROBOTCMDS=`pwd`/src/test/data/sample.1.txt
 java -jar ./build/libs/rearobotproblem-1.0.jar -s ./src/generated/robottoy.xsd -c ./src/config/robottoyrc.xml
 ```
+
+The file sample.1.txt has a series of commands that can be used by the command line.
+
+**CONSIDERATIONS**
+
+* SRP : each interface is designed to have one purpose;
+* OCP : because each concrete implementation is written as a interface, they can be extended and changed easily;
+* LCP : object (concrete implementations) can be replaced using configuration;
+* ISP : the interfaces are designed to be client specific, there are some exceptions to this such as actions but they 
+have also been divided into only having methods that they need to know about.
+* DIP : the interaction of hte classes relies on compliance to the interface and has no knowledge of the 
+concrete implementation.
+
 
 **IMPORTANT** **CONCEPTS**
 
@@ -69,9 +108,9 @@ the client via the _RobotResponder_
 
 Actions are broken into three groups, these are:
 
-** __LocalActions__ : Actions that only affect the perspective of the PhysicalObject and have no effect on the World.
-** __GlobalActions__ : Actions that change the worlds perspective of the PhysicalObject
-** __WorldActions__ : Actions which change the world, such as adding a new Physical object.
+* __LocalActions__ : Actions that only affect the perspective of the PhysicalObject and have no effect on the World.
+* __GlobalActions__ : Actions that change the worlds perspective of the PhysicalObject
+* __WorldActions__ : Actions which change the world, such as adding a new Physical object.
 
 Actions can be added dynamically by configuration.
 
