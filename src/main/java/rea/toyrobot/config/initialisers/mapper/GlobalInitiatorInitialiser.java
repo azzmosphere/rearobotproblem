@@ -39,7 +39,7 @@ public class GlobalInitiatorInitialiser extends AbstractInitMapper<GlobalInitiat
         globalActionsInitialiser = new GlobalActionsInitialiser(world);
 
         for (ToyRobot.ReaGlobalInitiator.Action action : config.getReaGlobalInitiator().getAction()) {
-            GlobalAction globalAction = globalActionsInitialiser.map((String) action.getClazz());
+            GlobalAction globalAction = globalActionsInitialiser.map(action.getClazz());
             globalAction.setWorld(world);
             instance.addAction(globalAction);
         }

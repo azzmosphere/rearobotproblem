@@ -22,7 +22,7 @@ public class LocalInitiatorInitialiser extends AbstractInitMapper<LocalInitiator
     @Override
     public void configure(LocalInitiator instance) throws RobotInitialisationException {
         for (ToyRobot.ReaLocalInitiator.Action action : config.getReaLocalInitiator().getAction()) {
-            instance.addAction((new LocalActionInitialiser()).map((String) action.getClazz()));
+            instance.addAction((new LocalActionInitialiser()).map(action.getClazz()));
         }
     }
 
